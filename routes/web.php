@@ -11,6 +11,7 @@
 |
 */
 Route::get('/resources','pagescontroller@getresources');
-Route::get('/','pagescontroller@getindex');
+Route::get('/','pagescontroller@getindex')->name('home');
 Route::get('/forum','pagescontroller@forum');
 Route::get('/_n','pagescontroller@nav');
+Route::get('/login','pagescontroller@login');

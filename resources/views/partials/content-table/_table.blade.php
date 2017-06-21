@@ -1,9 +1,9 @@
 <div class="lefttable">
 <div>
   <ul class="nav nav-tabs ">
-    <li role="presentation" class="active"><a data-toogle="tab" href="partials.content-table._trending">Trending</a></li>
-    <li role="presentation"><a href="partials.content-table._featured">Featured</a></li>
-    <li role="presentation"><a href="partials.content-table._new">New</a></li>
+    <li role="presentation" class="active"><a data-toogle="tab" href="#">Trending</a></li>
+    <li role="presentation"><a href="{{ route('home', ['sortby'=>'featured'])}}">Featured</a></li>
+    <li role="presentation"><a href="#">New</a></li>
   </ul>
 </div>
   @foreach($posts as $post)

@@ -29,7 +29,7 @@
           </form>
         </li>
           <li><a href="/create post"><span class="fa fa-plus-circle"></span></a></li>
-          <li><a href="/notifications"><span class="fa fa-bell"></span></a></li>
+          <li><a href="/notifications"><span class="fa fa-bell badge">5</span><!--<span id="ab-pending-notifications" class="pending-count alert">5</span>--></a></li>
           <li><a href="/profile"><span class="fa fa-user-circle"></span></a></li>
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span class="glyphicon glyphicon-menu-down"></span></a>
             <ul class="dropdown-menu">

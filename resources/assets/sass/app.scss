@@ -1,10 +1,12 @@
-
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
-
 // Bootstrap
 @import "bootstrap";
+
+//global variales
+$theme-color: #FD9142;
+
+
 //styles for cover begins here
 .head-cover{
   background: url('/images/ab.jpg');
@@ -21,28 +23,23 @@
   padding-bottom:5px;
 }
 //styles for cover ends here
-.content{
-  margin-top: 0px;
-}
+
+
+//styles for body begins here
 .header-space{
   margin-top: 200px;
 }
-$mybg: #989894;
-.well.mybg{
-  background-color: $mybg;
-}
+//styles for body ends here
 
+
+//styles for icons begins here
 .fa{
   font-size: 20px;
 }
-.nav a{
-  color: #6b6d6f;
-}
+//styles for icons ends here
 
-.text{
-  text-align: center;
-  margin-top: 500px;
-}
+
+//styles for search begins here
 @media(min-width:768px)
 {
   input[id="search"] {
@@ -79,8 +76,30 @@ $mybg: #989894;
     box-shadow: 0 0 5px rgba(109,207,246,.5);
   }
 }
+form .has-feedback .form-control-feedback {
+  pointer-events: all;
+}
+form .has-feedback button.form-control-feedback {
+  pointer-events: all;
+  border: none;
+  background: transparent;
+}
+.form-group .form-control-feedback .fa
+{
+  line-height: 100%;
+}
+.form-group.has-feedback input{
+  padding-right: 40px;
+}
+//style for search-bar ends here
+
+
+//styles for nav-tabs begins here
 .nav-tabs
 {
+  .nav a{
+  color: $theme-color;
+  }
   li a{
     margin-bottom: -2px;
     background: #d6d4d3;
@@ -95,6 +114,9 @@ $mybg: #989894;
   margin-left: -15px;
   margin-right: -10px;
 }
+//styles for navtabs ends here
+
+
 //styles for posts table
 $post-desc-font-size: 14px;
 $post-desc-line-height: 1.4;
@@ -168,6 +190,7 @@ $post-bg-color: lighten($main-color, 20%);
       .span-right{
         float: right;
         padding-right: 5px;
+
       }
     }
 }
@@ -182,74 +205,70 @@ $pagination-bg-color: #fd9141;
 }
 //styles for pagionation end here
 
+
 //styles for sidebar begins here
-
-form .has-feedback .form-control-feedback {
-  pointer-events: all;
+  .sidebar{
+  background: $theme-color;
+  margin-top: 42px;
+  border-radius: 4px;
+  .profile {
+    img{
+    width: 50%;
+    border-radius: 50%;
+    margin-top: 15px;
+  }
+  }
+  .captions .captions-value{
+    p{
+      color: white;
+    }
+  }
+.member-pic{
+  display: block;
+  img{
+    width: 100%;
+    margin-left: 10px;
+    border-radius: 50%;
+  }
 }
-form .has-feedback button.form-control-feedback {
-  pointer-events: all;
-  border: none;
-  background: transparent;
-}
-
-.form-group .form-control-feedback .fa
-{
-  line-height: 100%;
-}
-.form-group.has-feedback input{
-  padding-right: 40px;
-}
-.posts_card{
-  border-radius: 8px;
-  border: 2px solid black;
-}
-.posts_card h2,p{
-  color: white;
-}
-.profile img{
-  width: 100%;
-  border-radius: 50%;
-}
-.profile .name{
-  margin-left: 20px;
-}
-.posts h3{
-  margin: 0px;
-  color: rgb(162, 53, 1);
-}
-.posts p{
-  color: black;
-}
-.name{
-  padding-top: 10px;
-}
-.tags {
-  margin-top: 70px;
-}
-.status span
-{
-  font-size: 16px;
-  line-height: 16px;
-  margin-right: 10px;
-}
-.lefttable .well{
-  padding-bottom: 5px;
+.row{
   margin-bottom: 5px;
-  padding-top: 5px;
 }
+  }
+  .Q-button{
+    margin-top: 15px;
+  }
+//styles for sidebar ends here
 
 
-.nav .dropdown{
-  margin-right: 15px;
+//styles for login begins here
+
+//styles for login ends here
+
+
+//Dk
+.forum-search{
+  margin-top: 180px;
 }
-.nav-tabs > li.active > a {
-  color: #3c5a78;
-  font-size: 16px;
+.b{
+  background-color: $theme-color;
+  border-radius: 4px;
+  margin-top: 40px;
+.left-forum-topic{
+.topic{
+  width: 100%;
+  .topic-photo img{
+    display: block;
+    margin-top: 10px;
+    width:25%;
+    height: 50px;
+    .topic-name{
+      display: block;
+      text-align: center;
+    }
+  }
+
 }
-.nav-tabs > li > a {
-  color: #575757;
 }
-.form{
-  width: 50%;
 }
+//Dk

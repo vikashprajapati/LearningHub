@@ -6,9 +6,7 @@
     <div class="col-md-8">
       @include('partials.content-table._table')
     </div>
-    <div class="col-md-2">
       @include('partials._sidecards')
-    </div>
   </div>
 </div>
 @endsection
