@@ -37,7 +37,7 @@
 
 
               {{--code for top members card begins here--}}
-              <div class="sidebar col-sm-3 col-md-3 col-md-offset-1">
+              <div class="sidebar col-sm-3 col-md-3 col-md-offset-1" style="float:right;">
                 <span><h4 style="text-align:center">Top-members</h4></span>
                 @for($i=1;$i<=5;$i++)
                 <div class="row">

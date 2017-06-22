@@ -1,24 +1,31 @@
 @extends('/layouts/main')
 @section('title','|Forums')
 @section('content')
-<div class="container header-space">
+<div class="forum container header-space">
   <div class="row">
-    <div class="b col-md-8">
-      <div class="left-forum-topic">
-        <div class="row" style="padding-bottom: 10px">
-          @for($i=1;$i<=10;$i++)
-          <div class="topic col-sm-2">
-            <div class="topic-photo">
-              <img src="{{ asset('images/profile.jpg') }}"alt="">
-              <span class="topic-name">ABCD</span>
+    <div class="page-header">
+      <h1>Forum-Topics</h1>
+    </div>
+    <div class="jumbotron col-md-8 col-sm-8" style="padding:15px; margin-top:40px">
+      @for($j=1;$j<=3;$j++)
+          <div class="row">
+            @for($i=1;$i<=3;$i++)
+            <div class="col-sm-3 col-md-4">
+              <div class="topic-box thumbnail">
+                <img src="{{ asset('images/profile.jpg') }}"alt="">
+                <div class="Captions text-center">
+                  <h4>topic{{$i*$j}}</h4>
+                  <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h5>
+                </div>
+              </div>
             </div>
+            @endfor
           </div>
           @endfor
         </div>
-      </div>
-    </div>
-    @include('partials._sidecards')
+        @include('partials._sidecards')
   </div>
+</div>
 </div>
 <!--<div class="container">
 <div class="forum-search col-lg-4  col-md-6  col-sm-6  col-xs-8  " style="padding: 0%">
