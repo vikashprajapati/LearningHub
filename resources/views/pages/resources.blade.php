@@ -1,20 +1,29 @@
-@extends('layouts.main')
+@extends('/layouts/main')
+@section('title','|Resources')
 @section('content')
-            <div class="content">
-                <div class="title m-b-md">
-                    About me {{$full}}
+<div class="forum container header-space">
+  <div class="row">
+    <div class="page-header">
+      <h2>resources</h2>
+    </div>
+    <div class="jumbotron col-md-8 col-sm-8" style="padding:15px; margin-top:40px">
+      @for($j=1;$j<=2;$j++)
+          <div class="row">
+            @for($i=1;$i<=3;$i++)
+            <div class="col-sm-3 col-md-4">
+              <div class="topic-box thumbnail">
+                <img src="{{ asset('images/resources/r.png') }}"alt="">
+                <div class="Captions text-center">
+                  <h4>Resource{{$i*$j}}</h4>
+                  <h5>This section contains content based on type of resources such as videos,Ebooks,pdf notes,previous year question papers.</h5>
                 </div>
-                <div>
-                  <p>This is just a begining</p>
-                </div>
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+              </div>
             </div>
+            @endfor
+          </div>
+          @endfor
         </div>
-    </body>
-@endsection
+        @include('partials._sidecards')
+  </div>
+</div>
+</div>
