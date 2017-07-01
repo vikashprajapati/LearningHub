@@ -17,15 +17,11 @@ class pagescontroller extends Controller
     return view('pages.welcome')->withPosts($posts);
   }
 
-
-
   //controller for forum page
   public function forum(){
     $posts = Post::all();
     return view('pages.forum')->withPosts($posts);
   }
-
-
 
   //controller for resouces page
   public function resources(){
@@ -33,12 +29,17 @@ class pagescontroller extends Controller
     return view('pages.resources')->withResources($resources);
   }
 
-
-
 //controller for store page
 public function store()
 {
   return view('pages.store');
+}
+
+//controller for viewing posts
+public function vpost()
+{
+  # code...
+  return view('pages.viewpost');
 }
 }
 ?>

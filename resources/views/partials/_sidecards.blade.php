@@ -1,5 +1,5 @@
 @extends('modals.login-signup')
-<div class="sidebar col-sm-3 col-md-3 col-md-offset-1">
+<div class="sidebar hidden-xs hidden-sm col-md-3 col-md-offset-1">
   <div class="profile">
     <a href="#"><img class="center-block" src="{{ asset('images/profile.jpg') }}" alt=""></a>
     <h4 style="text-align:center"><strong>Username</strong></h4>
@@ -28,7 +28,7 @@
               @section('form-modal')
               @endsection
               {{--button for asking question--}}
-              <div class="Q-button col-sm-3 col-md-3 col-md-offset-1">
+              <div class="Q-button hidden-xs hidden-sm col-md-3 col-md-offset-1">
                 <div class="row">
                   <a class="btn btn-primary center-block">Ask Question</a>
                 </div>
@@ -37,7 +37,7 @@
 
 
               {{--code for top members card begins here--}}
-              <div class="sidebar col-sm-3 col-md-3 col-md-offset-1" style="float:right;">
+              <div class="sidebar hidden-xs hidden-sm col-md-3 col-md-offset-1" style="float:right;">
                 <span><h4 style="text-align:center">Top-members</h4></span>
                 @for($i=1;$i<=5;$i++)
                 <div class="row">

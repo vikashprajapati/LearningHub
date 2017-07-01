@@ -5,6 +5,7 @@
 </head>
 <body>
 @include('partials._navbar')
+<a href="/createpost"class="create-thread btn btn-primary fa fa-plus"></a>
 @yield('content')
 @include('partials._javascript')
 </body>

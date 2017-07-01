@@ -14,3 +14,4 @@ Route::get('/','pagescontroller@home')->name('home');
 Route::get('/forum','pagescontroller@forum');
 Route::get('/resources','pagescontroller@resources');
 Route::get('/store','pagescontroller@store');
+Route::get('/viewpost','pagescontroller@vpost');
