@@ -15,3 +15,7 @@ Route::get('/forum','pagescontroller@forum');
 Route::get('/resources','pagescontroller@resources');
 Route::get('/store','pagescontroller@store');
 Route::get('/viewpost','pagescontroller@vpost');
+Route::get('/newthread','pagescontroller@nt');
+Route::get('/video','pagescontroller@video');
+Route::get('/qa','pagescontroller@qa');
+Route::get('/profile','pagescontroller@profile');

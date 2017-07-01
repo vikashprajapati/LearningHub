@@ -41,5 +41,26 @@ public function vpost()
   # code...
   return view('pages.viewpost');
 }
+
+public function profile()
+{
+  # code...
+  return view('pages.profile');
+}
+public function video()
+{
+  # code...
+  return view('pages.video');
+}
+public function qa()
+{
+  # code...
+  return view('pages.qa');
+}
+public function nt()
+{
+  # code...
+  return view('pages.newthread');
+}
 }
 ?>
