@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+.row{
+    padding-top: 10px;
+}
+
+>>>>>>> 9b7dc8e8c30750cb9d5b5642b221c22ce236a940
 /* cards */
 
 .card *:hover{
@@ -68,3 +75,11 @@
 	-o-transition: 0.3s;
 	transition: 0.3s;
 }
+<<<<<<< HEAD
+=======
+
+.container
+{
+  margin-top: 350px;
+}
+>>>>>>> 9b7dc8e8c30750cb9d5b5642b221c22ce236a940

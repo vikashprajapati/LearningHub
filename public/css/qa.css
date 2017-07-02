@@ -5,6 +5,12 @@
     min-width:200px;
 }
 
+<<<<<<< HEAD
+=======
+.form-group{
+  margin-top: 30px;
+}
+>>>>>>> 9b7dc8e8c30750cb9d5b5642b221c22ce236a940
 .overlimit{color: red;}
 h2{color:#000; text-align:center;margin-bottom:-100px; margin-top:100px;}
 
@@ -24,6 +30,15 @@ h2{color:#000; text-align:center;margin-bottom:-100px; margin-top:100px;}
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
+<<<<<<< HEAD
+=======
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+    padding-right: 100px;
+}
+
+>>>>>>> 9b7dc8e8c30750cb9d5b5642b221c22ce236a940
 a {
     text-decoration: none;
     display: inline-block;
@@ -38,4 +53,8 @@ a:hover {
 .next {
     background-color: #4CAF50;
     color: white;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9b7dc8e8c30750cb9d5b5642b221c22ce236a940
 }
