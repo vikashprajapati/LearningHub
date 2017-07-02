@@ -25,8 +25,8 @@ class pagescontroller extends Controller
 
   //controller for resouces page
   public function resources(){
-    $resource = array('Video Lectures','Digital Library','PDF notes','Question Banks','Photos','Documents');
-    return view('pages.resources')->withResource($resource);
+    $resources = array('Video Lectures','Digital Library','PDF notes','Question Banks','Photos','','Documents');
+    return view('pages.resources')->withResources($resources);
   }
 
 //controller for store page
@@ -49,6 +49,7 @@ public function profile()
 }
 public function video()
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
   $subjects = [
     [
@@ -162,6 +163,15 @@ public function qa()
   # code...
   return view('pages.qa');
 >>>>>>> 9b7dc8e8c30750cb9d5b5642b221c22ce236a940
+=======
+  # code...
+  return view('pages.video');
+}
+public function qa()
+{
+  # code...
+  return view('pages.qa');
+>>>>>>> parent of 0f97284... connection done
 }
 public function nt()
 {

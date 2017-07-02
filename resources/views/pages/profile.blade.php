@@ -4,12 +4,26 @@
 @section('content')
 @endsection
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+  integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+>>>>>>> parent of 0f97284... connection done
   <div id="particles-js"></div>
   <script src="particles.js"></script>
+
+
+
 
   <!-- Profile icon header-->
 
   <link rel="stylesheet" href="{{ URL::asset('css/profile.css') }}" />
+<<<<<<< HEAD
 =======
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -29,6 +43,9 @@
   <link rel="stylesheet" href="{{ URL::asset('css/profile.css') }}" />
   <link rel="stylesheet" href="{{ asset ('css/font-awesome.css')}}">
 >>>>>>> 9b7dc8e8c30750cb9d5b5642b221c22ce236a940
+=======
+  <link rel="stylesheet" href="{{ asset ('css/font-awesome.css')}}">
+>>>>>>> parent of 0f97284... connection done
 
 
   <div class="col-lg-12 col-sm-12">
