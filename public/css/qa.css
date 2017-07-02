@@ -4,19 +4,6 @@
     height:100px;
     min-width:200px;
 }
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-.form-group{
-  margin-top: 30px;
-}
->>>>>>> 9b7dc8e8c30750cb9d5b5642b221c22ce236a940
-=======
-.form-group{
-  margin-top: 30px;
-}
->>>>>>> parent of 0f97284... connection done
 .overlimit{color: red;}
 h2{color:#000; text-align:center;margin-bottom:-100px; margin-top:100px;}
 
@@ -36,21 +23,6 @@ h2{color:#000; text-align:center;margin-bottom:-100px; margin-top:100px;}
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of 0f97284... connection done
-/* Add some padding inside the card container */
-.container {
-    padding: 2px 16px;
-    padding-right: 100px;
-}
-
-<<<<<<< HEAD
->>>>>>> 9b7dc8e8c30750cb9d5b5642b221c22ce236a940
-=======
->>>>>>> parent of 0f97284... connection done
 a {
     text-decoration: none;
     display: inline-block;
@@ -65,12 +37,4 @@ a:hover {
 .next {
     background-color: #4CAF50;
     color: white;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 9b7dc8e8c30750cb9d5b5642b221c22ce236a940
-=======
-
->>>>>>> parent of 0f97284... connection done
 }

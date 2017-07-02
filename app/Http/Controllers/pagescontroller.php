@@ -49,8 +49,6 @@ public function profile()
 }
 public function video()
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
   $subjects = [
     [
       'name' => 'Zoo',
@@ -154,29 +152,16 @@ public function qa()
     ],
   ];
   return view('pages.qa')->withQatopic($qatopic);
-=======
-  # code...
-  return view('pages.video');
-}
-public function qa()
-{
-  # code...
-  return view('pages.qa');
->>>>>>> 9b7dc8e8c30750cb9d5b5642b221c22ce236a940
-=======
-  # code...
-  return view('pages.video');
-}
-public function qa()
-{
-  # code...
-  return view('pages.qa');
->>>>>>> parent of 0f97284... connection done
 }
 public function nt()
 {
   # code...
   return view('pages.newthread');
+}
+public function viewquestion()
+{
+  # code...
+  return view('pages.vqa');
 }
 }
 ?>
