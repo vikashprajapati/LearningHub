@@ -25,8 +25,8 @@ class pagescontroller extends Controller
 
   //controller for resouces page
   public function resources(){
-    $resources = array('Video Lectures','Digital Library','PDF notes','Question Banks','Photos','','Documents');
-    return view('pages.resources')->withResources($resources);
+    $resource = array('Video Lectures','Digital Library','PDF notes','Question Banks','Photos','Documents');
+    return view('pages.resources')->withResource($resource);
   }
 
 //controller for store page
@@ -49,13 +49,109 @@ public function profile()
 }
 public function video()
 {
-  # code...
-  return view('pages.video');
+  $subjects = [
+    [
+      'name' => 'Zoo',
+      'image' => 'images/motherboard_450.jpg',
+      'desc' => 'Contents related to botany.',
+    ],
+    [
+      'name' => 'Chemistry',
+      'image' => 'images/maths.jpg',
+      'desc' => 'Contents related to chemicals.',
+    ],
+    [
+      'name' => 'Botany',
+      'image' => 'images/maths.jpg',
+      'desc' => 'Contents related to botany.',
+    ],
+    [
+      'name' => 'Maths',
+      'image' => 'images/maths.jpg',
+      'desc' => 'Contents related to botany.',
+    ],
+    [
+      'name' => 'Computer',
+      'image' => 'images/motherboard_450.jpg',
+      'desc' => 'Contents related to botany.',
+    ],
+    [
+      'name' => 'technology',
+      'image' => '/images/maths.jpg',
+      'desc' => 'contents related to tech',
+    ],
+    [
+      'name' => 'Physics',
+      'image' => '/images/motherboard_450.jpg',
+      'desc' => 'Contents related to physics.',
+    ],
+    [
+      'name' => 'Electronics',
+      'image' => 'images/motherboard_450.jpg',
+      'desc' => 'Electronic components.',
+    ],
+  ];
+  return view('pages.video')->withSubjects($subjects);
 }
 public function qa()
 {
-  # code...
-  return view('pages.qa');
+  $qatopic = [
+    [
+      'question' => 'What is algae and what are its functions',
+      'ans' => 'its a unicellular organism',
+      'posted-on' => '8 minutes ago',
+      'answers' => "8",
+      'helped' => "4",
+      'views' => "67",
+      'shares' => "12",
+    ],
+    [
+      'question' => 'What is algae and what are its functions',
+      'ans' => 'its a unicellular organism',
+      'posted-on' => '8 min ago',
+      'answers' => "8",
+      'helped' => "4",
+      'views' => "67",
+      'shares' => "12",
+    ],
+    [
+      'question' => 'What is algae and what are its functions',
+      'ans' => 'its a unicellular organism',
+      'posted-on' => '8 minutes ago',
+      'answers' => "8",
+      'helped' => "4",
+      'views' => "67",
+      'shares' => "12",
+    ],
+    [
+      'question' => 'What is algae and what are its functions',
+      'ans' => 'its a unicellular organism',
+      'posted-on' => '8 minutes ago',
+      'answers' => "8",
+      'helped' => "4",
+      'views' => "67",
+      'shares' => "12",
+    ],
+    [
+      'question' => 'What is algae and what are its functions',
+      'ans' => 'its a unicellular organism',
+      'posted-on' => '8 minutes ago',
+      'answers' => "8",
+      'helped' => "4",
+      'views' => "67",
+      'shares' => "12",
+    ],
+    [
+      'question' => 'What is algae and what are its functions',
+      'ans' => 'its a unicellular organism',
+      'posted-on' => '8 minutes ago',
+      'answers' => "8",
+      'helped' => "4",
+      'views' => "67",
+      'shares' => "12",
+    ],
+  ];
+  return view('pages.qa')->withQatopic($qatopic);
 }
 public function nt()
 {

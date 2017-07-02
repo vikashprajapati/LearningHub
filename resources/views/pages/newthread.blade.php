@@ -2,27 +2,17 @@
 @section('title','|post')
 @section('content')
 @endsection
-
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-  integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+<!--stylesheets for texteditor and design  -->
 <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
+<script src="js/typew.js"></script>
+<script type="text/javascript">
+bkLib.onDomLoaded(function() {
+  new nicEditor({fullPanel : true}).panelInstance('thread');
+});
+</script>
+<!-- end of stylesheets -->
 
-  <link rel="stylesheet" href="{{ URL::asset('css/typew.css') }}" />
-  <link rel="stylesheet" href="{{ asset ('css/font-awesome.css')}}">
-  <script src="js/typew.js"></script>
-
-  <script type="text/javascript">
-          bkLib.onDomLoaded(function() {
-
-                     new nicEditor({fullPanel : true}).panelInstance('thread');
-                  });
-          </script>
-
-  <div class="container">
+  <div class="container header-space">
     <div class="form-group">
     <div class="panel panel-success">
       <div class="panel-heading">
@@ -36,11 +26,9 @@
           <input class="form-control" placeholder="Write a suitable title of your query or discussion." type="text">
         </div>
 
-    <div class="wrap">
+    <div class="wrap m-t-50 m-b-50" style="width:100%">
     <textarea class="form-control" rows="10" id="thread" placeholder="Type your discussion here.." name="thread" style="width:100%;height:200px;"></textarea>
   </div>
-
-
 
 
 <div class="alert alert-info alert-dismissable">

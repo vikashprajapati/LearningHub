@@ -18,7 +18,7 @@
         <li><a href="/forum"><span class="fa fa-pencil-square-o"></span></a></li>
         <li><a href="/resources"><span class="fa fa-download"></span></a></li>
         <li><a href="/store"><span class="fa fa-shopping-cart"></span></a></li>
-        <li><a href="/QA"><span class="fa fa-quora"></span></a></li>
+        <li><a href="/qa"><span class="fa fa-quora"></span></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><form>

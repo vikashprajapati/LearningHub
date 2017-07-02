@@ -203,9 +203,8 @@ $pagination-bg-color: #fd9141;
 
 //styles for sidebar begins here
   .sidebar{
-  background: $theme-color;
-  margin-top: 42px;
-  border-radius: 4px;
+  background: gray;
+  margin-top: 40px;
   .profile {
     img{
     width: 50%;
@@ -222,17 +221,15 @@ $pagination-bg-color: #fd9141;
   display: block;
   img{
     width: 100%;
-    margin-left: 10px;
     border-radius: 50%;
   }
 }
-.row{
-  margin-bottom: 5px;
+.member-name .member-points{
+  p{
+    width: 100%;
+  }
 }
-  }
-  .Q-button{
-    margin-top: 15px;
-  }
+}
 //styles for sidebar ends here
 
 
@@ -296,3 +293,17 @@ $pagination-bg-color: #fd9141;
   box-shadow: 0px 3px 2px #888888;
 }
 //end of create post style
+
+
+//styles for resouces page
+.resource-box{
+  .resource-item{
+    a {
+        color: black;
+      &:hover, &:focus{
+          text-decoration: none;
+      }
+    }
+  }
+}
+//end of resource style

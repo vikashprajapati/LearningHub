@@ -5,9 +5,6 @@
     min-width:200px;
 }
 
-.form-group{
-  margin-top: 30px;
-}
 .overlimit{color: red;}
 h2{color:#000; text-align:center;margin-bottom:-100px; margin-top:100px;}
 
@@ -27,12 +24,6 @@ h2{color:#000; text-align:center;margin-bottom:-100px; margin-top:100px;}
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-/* Add some padding inside the card container */
-.container {
-    padding: 2px 16px;
-    padding-right: 100px;
-}
-
 a {
     text-decoration: none;
     display: inline-block;
@@ -47,5 +38,4 @@ a:hover {
 .next {
     background-color: #4CAF50;
     color: white;
-
 }
