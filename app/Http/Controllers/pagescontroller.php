@@ -29,18 +29,6 @@ class pagescontroller extends Controller
     return view('pages.resources')->withResources($resources);
   }
 
-//controller for store page
-public function store()
-{
-  return view('pages.store');
-}
-
-//controller for viewing posts
-public function vpost()
-{
-  # code...
-  return view('pages.viewpost');
-}
 
 public function profile()
 {
@@ -153,11 +141,7 @@ public function qa()
   ];
   return view('pages.qa')->withQatopic($qatopic);
 }
-public function nt()
-{
-  # code...
-  return view('pages.newthread');
-}
+
 public function viewquestion()
 {
   # code...

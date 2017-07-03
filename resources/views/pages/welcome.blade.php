@@ -1,7 +1,7 @@
-@extends('/layouts/main')
+@extends('layouts.main')
 @section('title','|Homepage')
 @section('content')
-<div class="container header-space">
+<div class="container">
   <div class="row">
     <div class="col-md-8">
       @include('partials.content-table._table')
