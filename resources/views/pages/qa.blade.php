@@ -1,14 +1,13 @@
 @extends('/layouts/main')
 @section('title','|post')
 @section('content')
-@endsection
 <!-- scripts and stylesheets for QA -->
 <script src="js/qa.js"></script>
 <link rel="stylesheet" href="{{ URL::asset('css/qa.css') }}" />
 <!--end of scripts and stylesheets  -->
 
 
-<div class="container header-space">
+<div class="container">
   <!-- Question Box begins here  -->
   <div class="panel panel-danger">
     <div class="panel-heading">
@@ -20,13 +19,16 @@
         <i class="fa fa-coffee"></i>
         After typing your question, click on <strong> Ask </strong> to help finalize things for us.
       </div>
+      <form method="post" action="{{ route('question.store') }}">
+        {{ csrf_field() }}
       <div class="form-group m-t-30">
         <div class="wrap">
-          <textarea class="form-control" rows="5" id="ques" placeholder="Type your question here.."></textarea>
+          <textarea class="form-control" name="ques"  rows="5" id="ques" placeholder="Type your question here.."></textarea>
         </div>
       </div>
       <span id="text_counter"></span>
-      <button type="submit" class="btn btn-danger" data-toggle="modal" data-target=".ask">Ask</button>
+      <button type="submit" class="btn btn-danger" data-toggle="modal">Ask</button>
+    </form>
       <div class="modal fade ask" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
@@ -112,7 +114,7 @@
           </div>
         </div>
         <!-- end of tab panel -->
-@foreach($qatopic as $QA)
+    {{--@foreach($qatopic as $QA)
         <div class="card">
           <div class="row m-l-15">
             <h4><b>{{$QA['question']}}</b></h4>
@@ -136,5 +138,6 @@
             <a href="/vqa" class="next m-b-10">Read full.. &raquo;</a>
           </div>
         </div>
-        @endforeach
+        @endforeach--}}
    </div>
+@endsection

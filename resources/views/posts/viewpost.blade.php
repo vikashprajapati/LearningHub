@@ -1,31 +1,30 @@
 @extends('/layouts/main')
 @section('title','|post')
 @section('content')
-@endsection
-<div class="viewpost container" style="margin-top:180px;">
+<div class="viewpost container">
   <!-- //page-header begins here -->
   <div class="page-header text-center">
-    <h1>This is an example of page header</h1>
+    <h1>{{ $post->title }}</h1>
     <div class="row">
       <div class="header-profile-img hidden-xs col-sm-1 col-md-1">
         <img src="images/profile.jpg" alt="profile-pic">
       </div>
       <div class="header-profile-name col-sm-1 col-md-1">
-        <h4>vikash</h4>
+        <h4>{{ $post->user }}</h4>
       </div>
       <div class="header-tags m-t-10 col-xs-offset-4 col-sm-offset-5 col-md-offset-6 col-xs-6 col-sm-5 col-md-4">
-        <span class="posted" style="position:relative;right:-50px">Posted-on: 12/10/2016</span>
+        <span class="posted" style="position:relative;right:-40 px">Posted-on: {{date('M j,Y h:ia',strtotime($post->created_at))}}</span>
         <span class="fa fa-eye" style="float:right;">  4k</span>
       </div>
     </div>
   </div>
   <!-- //page-header ends -->
 
-  
+
   <!-- //post body begins/ -->
   <div class="panel panel-default">
   <div class="panel-body">
-    <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h5>
+    <h5>{!! $post->body !!}</h5>
     <img src="/images/a.jpg" width="50%" alt="">
   </div>
 </div>
@@ -131,3 +130,4 @@
 </div>
 </div>
 <!-- //comments section ends here -->
+@endsection

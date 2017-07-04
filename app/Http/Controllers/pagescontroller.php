@@ -29,18 +29,6 @@ class pagescontroller extends Controller
     return view('pages.resources')->withResources($resources);
   }
 
-//controller for store page
-public function store()
-{
-  return view('pages.store');
-}
-
-//controller for viewing posts
-public function vpost()
-{
-  # code...
-  return view('pages.viewpost');
-}
 
 public function profile()
 {
@@ -93,71 +81,67 @@ public function video()
   ];
   return view('pages.video')->withSubjects($subjects);
 }
-public function qa()
-{
-  $qatopic = [
-    [
-      'question' => 'What is algae and what are its functions',
-      'ans' => 'its a unicellular organism',
-      'posted-on' => '8 minutes ago',
-      'answers' => "8",
-      'helped' => "4",
-      'views' => "67",
-      'shares' => "12",
-    ],
-    [
-      'question' => 'What is algae and what are its functions',
-      'ans' => 'its a unicellular organism',
-      'posted-on' => '8 min ago',
-      'answers' => "8",
-      'helped' => "4",
-      'views' => "67",
-      'shares' => "12",
-    ],
-    [
-      'question' => 'What is algae and what are its functions',
-      'ans' => 'its a unicellular organism',
-      'posted-on' => '8 minutes ago',
-      'answers' => "8",
-      'helped' => "4",
-      'views' => "67",
-      'shares' => "12",
-    ],
-    [
-      'question' => 'What is algae and what are its functions',
-      'ans' => 'its a unicellular organism',
-      'posted-on' => '8 minutes ago',
-      'answers' => "8",
-      'helped' => "4",
-      'views' => "67",
-      'shares' => "12",
-    ],
-    [
-      'question' => 'What is algae and what are its functions',
-      'ans' => 'its a unicellular organism',
-      'posted-on' => '8 minutes ago',
-      'answers' => "8",
-      'helped' => "4",
-      'views' => "67",
-      'shares' => "12",
-    ],
-    [
-      'question' => 'What is algae and what are its functions',
-      'ans' => 'its a unicellular organism',
-      'posted-on' => '8 minutes ago',
-      'answers' => "8",
-      'helped' => "4",
-      'views' => "67",
-      'shares' => "12",
-    ],
-  ];
-  return view('pages.qa')->withQatopic($qatopic);
-}
-public function nt()
-{
-  # code...
-  return view('pages.newthread');
-}
+// public function qa()
+// {
+//   $qatopic = [
+//     [
+//       'question' => 'What is algae and what are its functions',
+//       'ans' => 'its a unicellular organism',
+//       'posted-on' => '8 minutes ago',
+//       'answers' => "8",
+//       'helped' => "4",
+//       'views' => "67",
+//       'shares' => "12",
+//     ],
+//     [
+//       'question' => 'What is algae and what are its functions',
+//       'ans' => 'its a unicellular organism',
+//       'posted-on' => '8 min ago',
+//       'answers' => "8",
+//       'helped' => "4",
+//       'views' => "67",
+//       'shares' => "12",
+//     ],
+//     [
+//       'question' => 'What is algae and what are its functions',
+//       'ans' => 'its a unicellular organism',
+//       'posted-on' => '8 minutes ago',
+//       'answers' => "8",
+//       'helped' => "4",
+//       'views' => "67",
+//       'shares' => "12",
+//     ],
+//     [
+//       'question' => 'What is algae and what are its functions',
+//       'ans' => 'its a unicellular organism',
+//       'posted-on' => '8 minutes ago',
+//       'answers' => "8",
+//       'helped' => "4",
+//       'views' => "67",
+//       'shares' => "12",
+//     ],
+//     [
+//       'question' => 'What is algae and what are its functions',
+//       'ans' => 'its a unicellular organism',
+//       'posted-on' => '8 minutes ago',
+//       'answers' => "8",
+//       'helped' => "4",
+//       'views' => "67",
+//       'shares' => "12",
+//     ],
+//     [
+//       'question' => 'What is algae and what are its functions',
+//       'ans' => 'its a unicellular organism',
+//       'posted-on' => '8 minutes ago',
+//       'answers' => "8",
+//       'helped' => "4",
+//       'views' => "67",
+//       'shares' => "12",
+//     ],
+//   ];
+//   return view('pages.qa')->withQatopic($qatopic);
+// }
+
 public function viewquestion()
 {
   # code...
