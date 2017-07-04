@@ -12,11 +12,11 @@
 */
 Route::get('/','pagescontroller@home')->name('home');
 Route::resource('posts','PostController');
+Route::resource('question','QuestionController');
 Route::get('/forum','pagescontroller@forum');
 Route::get('/resources','pagescontroller@resources');
 Route::get('/createpost','PostController@create');
 Route::get('/video','pagescontroller@video');
-Route::get('/qa','pagescontroller@qa');
 Route::get('/profile','pagescontroller@profile');
 Route::get('/vqa','pagescontroller@viewquestion');
 
