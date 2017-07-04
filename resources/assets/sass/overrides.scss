@@ -3,6 +3,7 @@ $theme-color: #FD9142;
 //styles for cover begins here
 .head-cover{
   background: url('/images/ab.jpg');
+  -webkit-background: url('/images/ab.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   height: 120px;
@@ -16,7 +17,6 @@ $theme-color: #FD9142;
   padding-bottom:5px;
 }
 //styles for cover ends here
-
 
 //styles for body begins here
 .header-space{
