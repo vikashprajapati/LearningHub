@@ -9,6 +9,7 @@
   @foreach($posts as $post)
   <div class="row" style="padding-bottom: 10px">
     <div class="post">
+      <a href="/viewpost">
       <div class="post-photo">
           <img src="{{ asset('images/profile.jpg') }}"alt="">
           <span class="photo-caption">{{ $post->user }}</span>
@@ -39,6 +40,7 @@
         </div>
       </div>
     </div>
+  </a>
   </div>
   @endforeach
   <div class="pager">

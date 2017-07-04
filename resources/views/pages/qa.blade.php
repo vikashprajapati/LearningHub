@@ -118,20 +118,20 @@
             <h4><b>{{$QA['question']}}</b></h4>
             <p>{{$QA['ans']}}</p>
             <span class="fa fa-clock-o">
-              {{$QA['posted-on']}}
+              last updated {{$QA['posted-on']}}
             </span>
             <span class="fa fa-comments">
-              {{$QA['answers']}}
+              answers {{$QA['answers']}}
             </span>
             <span class="fa fa-mortar-board">
-              {{$QA['helped']}}
+              helped {{$QA['helped']}}
             </span>
             <span class="fa fa-eye">
-              {{$QA['views']}}
+              views {{$QA['views']}}
             </span>
 
             <span class="fa fa-send">
-              {{$QA['shares']}}
+              shares {{$QA['shares']}}
             </span>
             <a href="/vqa" class="next m-b-10">Read full.. &raquo;</a>
           </div>
