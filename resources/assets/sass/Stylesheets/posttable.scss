@@ -1,0 +1,125 @@
+//styles for nav-tabs begins here
+.nav-tabs
+{
+  border-bottom: 1px solid #f1c40f;
+  li {
+    a{
+      border-radius: 0px;
+      color: $navtabs-font-color;
+      background-color: $navtabs-background-color;
+    }
+    a:hover{
+      border-bottom: 2px solid $navtabs-hover-font-color;
+      background-color: $navtabs-hover-background-color;
+      color: $navtabs-hover-font-color;
+    }
+  }
+li.active{
+  a,a:hover,a:focus{
+    background-color: $navtabs-active-color;
+    color:$navtabs-hover-font-color;
+    border-bottom: 2px solid $navtabs-hover-font-color;
+  }
+  cursor: default;
+}
+
+  margin-left: -15px;
+  margin-right: -15px;
+}
+//styles for navtabs ends here
+
+//styles for posts table
+@media (max-width:768) {
+  .post{
+    .post-photo{
+      width: 20%;
+    }
+  }
+}
+.post{
+  position: relative;
+  border-top: 1px solid $post-border-color;
+  border-bottom: 1px solid $post-border-color;
+  background: $post-bg-color;
+  box-shadow: 5px 5px 5px $shadow-color;
+  .post-head{
+    position: relative;
+    left: 20px;
+    color: $post-title-color;
+    width: 90%;
+    h3{
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+  }
+  .post-date{
+    position: relative;
+    left: 20px;
+    h6{
+      margin-top: 0px;
+    }
+  }
+  .post-photo{
+    width: 10%;
+    display: inline-block;
+    position: relative;
+    float: left;
+    img{
+      display: block;
+      border-radius: 50%;
+      width: 100%;
+    }
+    .photo-caption{
+      margin-top: 10px;
+      font-weight: bold;
+      display: block;
+      text-align: center;
+    }
+  }
+  .post-body{
+    width: 90%;
+    position: relative;
+    left: 20px;
+    min-height: 50px;
+    .post-desc{
+      display: block;
+      display: -webkit-box;
+      font-size: $post-desc-font-size;
+      line-height: $post-desc-line-height;
+      max-height: $post-desc-font-size*$post-desc-line-height*$post-desc-lines;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+  .post-status{
+    width: 100%;
+    position: relative;
+    background-color: $theme-color;
+    .flex-container{
+       display: flex;
+       padding-left: 0px;
+       margin-bottom: 0px;
+      .flex-item{
+        list-style: none;
+        width: 100%;
+        text-align: center;
+        display: inline-block;
+        span{
+          color: $post-status-color;
+        }
+      }
+    }
+  }
+  .post-category{
+    background-color: $theme-color;
+    margin-top: -10px;
+    h4{
+      margin-top: 5px;
+      margin-bottom: 5px;
+      color: $post-status-color;
+    }
+  }
+}
+//styles for post table ends here

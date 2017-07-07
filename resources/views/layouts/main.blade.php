@@ -6,7 +6,7 @@
 <body>
 @include('partials._navbar')
 <div class="container header-space">
-  @include('partials._message');
+  @include('partials._message')
 </div>
 <a href="/createpost"class="create-thread btn btn-primary fa fa-plus"></a>
 @yield('content')

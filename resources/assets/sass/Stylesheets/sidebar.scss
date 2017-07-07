@@ -1,0 +1,56 @@
+//styles for sidebar begins here
+  .sidebar{
+    background: transparent;
+    .hots{
+      background: $post-bg-color;
+      box-shadow: 0px 5px 5px $shadow-color;
+      ul{
+        list-style: none;
+        .questions{
+          h5{
+            color: $theme-color;
+          }
+        }
+      }
+    }
+    .card-name{
+        color: $card-name-color;
+        background-color: $card-name-background-color;
+        margin-top: 0px;
+        border-top: 3px solid $card-name-color;
+    }
+    .profile{
+      background: $post-bg-color;
+      box-shadow: 0px 5px 5px $shadow-color;
+
+      .profile-img {
+        img{
+          width:50%;
+          border-radius: 50%;
+          margin-top: 15px;
+        }
+      }
+      .captions .captions-value{
+        h5{
+          color: $theme-color;
+        }
+      }
+    }
+    .topmember{
+      background: $post-bg-color;
+      box-shadow: 0px 5px 5px $shadow-color;
+      .member-pic{
+        display: block;
+        img{
+          width: 100%;
+          border-radius: 50%;
+        }
+      }
+      .member-name .member-points{
+        p{
+          width: 100%;
+        }
+      }
+    }
+    }
+//styles for sidebar ends here

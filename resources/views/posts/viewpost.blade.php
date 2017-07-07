@@ -7,7 +7,7 @@
     <h1>{{ $post->title }}</h1>
     <div class="row">
       <div class="header-profile-img hidden-xs col-sm-1 col-md-1">
-        <img src="images/profile.jpg" alt="profile-pic">
+        <img src="{{asset('images/vk.jpg')}}" alt="profile-pic">
       </div>
       <div class="header-profile-name col-sm-1 col-md-1">
         <h4>{{ $post->user }}</h4>
@@ -25,7 +25,6 @@
   <div class="panel panel-default">
   <div class="panel-body">
     <h5>{!! $post->body !!}</h5>
-    <img src="/images/a.jpg" width="50%" alt="">
   </div>
 </div>
 <!-- //post body ends -->

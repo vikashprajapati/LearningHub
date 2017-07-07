@@ -6,7 +6,7 @@
     <div class="page-header">
       <h1>Forum-Topics</h1>
     </div>
-    <div class="jumbotron col-md-8 col-sm-8" style="padding:15px; margin-top:40px">
+    <div class="jumbotron col-sm-9" style="padding:15px; margin-top:40px">
       @for($j=1;$j<=3;$j++)
           <div class="row">
             @for($i=1;$i<=3;$i++)

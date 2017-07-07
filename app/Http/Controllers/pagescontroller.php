@@ -25,11 +25,15 @@ class pagescontroller extends Controller
 
   //controller for resouces page
   public function resources(){
-    $resources = array('Video Lectures','Digital Library','PDF notes','Question Banks','Photos','','Documents');
+    $resources = array('Video Lectures','Digital Library','PDF notes','Question Banks','Photos','Documents');
     return view('pages.resources')->withResources($resources);
   }
 
-
+ public function trynav()
+{
+  # code...
+  return view('partials.nav');
+}
 public function profile()
 {
   # code...
@@ -81,6 +85,7 @@ public function video()
   ];
   return view('pages.video')->withSubjects($subjects);
 }
+
 // public function qa()
 // {
 //   $qatopic = [

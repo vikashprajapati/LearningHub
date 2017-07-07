@@ -17,6 +17,7 @@ Route::get('/forum','pagescontroller@forum');
 Route::get('/resources','pagescontroller@resources');
 Route::get('/createpost','PostController@create');
 Route::get('/video','pagescontroller@video');
+Route::get('/nav','pagescontroller@trynav');
 Route::get('/profile','pagescontroller@profile');
 Route::get('/vqa','pagescontroller@viewquestion');
 
