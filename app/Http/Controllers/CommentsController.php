@@ -6,10 +6,8 @@ use Illuminate\Http\Request;
 use App\Post;
 use Auth;
 use App\Comment;
-use Session;
-use App\Category;
 
-class PostController extends Controller
+class CommentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts=Post::all();
-        return view('posts.index')->withPosts($posts);
+        //
     }
 
     /**
@@ -29,8 +26,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories=Category::all();
-        return view('posts.newthread')->withCategories($categories);
+        //
     }
 
     /**
@@ -39,21 +35,19 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$post_id)
     {
         $this->validate($request,array(
-        'title' =>'required| max:255',
-        'body'  =>'required',
-        )
-      );
-      $post=new Post;
-      $post->title = $request->title;
-      $post->body = $request->body;
-      $post->user_id = Auth::user()->id;
-      $post->views=$post->views+1;
-      $post->save();
-      Session::flash('success','The blog post successfully saved');
-      return redirect()->route('posts.show', ['post'=>$post->id]);
+          'comment'=>'required|max:300'
+        ));
+        $post=Post::find($post_id);
+        $comment=new Comment;
+        $comment->user_id=Auth::user()->id;
+        $comment->post_id=$post_id;
+        $comment->comment=$request->comment;
+        $comment->save();
+        $comments=Comment::where('post_id',$post_id)->orderBy('created_at','desc')->get();
+        return view('posts.viewpost')->withPost($post)->withComments($comments);
     }
 
     /**
@@ -62,12 +56,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        $post->views++;
-        $post->save();
-        $comments=Comment::where('post_id',$post->id)->orderBy('created_at','desc')->get();
-        return view('posts.viewpost')->withPost($post)->withComments($comments);
+        //
     }
 
     /**
@@ -78,8 +69,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post=Post::find($id);
-        return view('posts.edit')->withPost($post);
+        //
     }
 
     /**

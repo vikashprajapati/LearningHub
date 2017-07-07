@@ -30,16 +30,29 @@
         </li>
           <li><a href="/create post"><span class="fa fa-plus-circle"></span></a></li>
           <li><a href="/notifications"><span class="fa fa-bell badge">5</span><!--<span id="ab-pending-notifications" class="pending-count alert">5</span>--></a></li>
-          <li><a href="/profile"><span class="fa fa-user-circle"></span></a></li>
+          @if (Auth::check())
+            <li><a href="/profile"><span class="fa fa-user-circle"></span></a></li>
+          @endif
+          @if (!Auth::check())
+            <li><a href="{{route('login')}}"><span class="fa fa-user-circle"></span></a></li>
+          @endif
+          @if (Auth::check())
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span class="glyphicon glyphicon-menu-down"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Activity Log</a></li>
+              <li><a href="{{route('posts.index')}}">Posts</a></li>
               <li><a href="#">settings</a></li>
               <li><a href="#">blah blah blah</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#">Logout</a></li>
+              <li>
+                <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                <form id="logout-form" action="{{route('logout')}}" method="post" style="display:none;">
+                  {{csrf_field() }}
+                </form>
+              </li>
+
             </ul>
           </li>
+          @endif
         </ul>
       </div>
     </div>

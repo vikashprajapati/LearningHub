@@ -6,5 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    //
+    public function tags()
+    {
+      return $this->belongstoMany('App\Tag');
+    }
+    public function user()
+    {
+      return $this->belongsTo('App\User');
+    }
+    public function comments()
+    {
+      return $this->hasMany('App\Comment');
+    }
 }

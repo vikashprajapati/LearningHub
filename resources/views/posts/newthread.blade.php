@@ -37,23 +37,17 @@ bkLib.onDomLoaded(function() {
 Choose the appropriate tags for your thread.
 </div>
 
-  <form class="form-horizontal" role="form">
 
-<label class="col-lg-3 control-label">General Category(for tags):</label>
-<div class="col-lg-8">
-  <div class="ui-select">
-    <select id="category1" class="form-control">
-      <option value="Maths">Mathematics</option>
-      <option value="Tech" selected="selected">Technology</option>
-      <option value="Biology">Biology</option>
+<label class="col-lg-3 control-label" value="category_id">Category:</label>
+    <select name="category_id" class="form-control">
+      @foreach ($categories as $category)
+        <option value="{{$category->id}}">{{$category->name}}</option>
+      @endforeach
     </select>
-  </div>
-</div>
 
-
-<label class="col-lg-3 control-label">Category(Specific):</label>
+<label class="col-lg-3 control-label p-t-10">tags:</label>
 <div class="col-lg-8">
-<div class="ui-select">
+<div class="ui-select p-t-10">
   <select id="category2" class="form-control">
     <option value="pro">Programming</option>
     <option value="announce">Product and Service Announcements</option>
@@ -61,30 +55,13 @@ Choose the appropriate tags for your thread.
   </select>
 </div>
 </div>
-<div class="col-lg-8">
-<input type="checkbox" name="date" value="date"> Include Date/Time<br>
-</div>
-<div class="col-lg-8">
-  <input type="checkbox" name="notif" value="notif"> Show me Notifications for this thread<br>
-  </div>
-
-</form>
 
 
 <div class="col-md-8" >
-  <button class="btn btn-primary" data-toggle="modal" data-target=".publish" style="left" type="submit" >
+  <button class="btn btn-primary" style="left" type="submit" >
     Publish<span class="fa fa-paper-plane" aria-hidden="true"></span></button>
 
-  <button class="btn btn-warning" data-toggle="modal" data-target=".preview" type="button" style="left" >
-    Preview<span class="fa fa-eye" aria-hidden="true"></span></button>
-  <div class="modal fade preview" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        Your preview of the thread is:
-      </div>
-    </div>
-  </div>
-  <input class="btn btn-success" value="Save as Draft" type="button">
+    <a href="/" class="btn btn-danger">Cancel</a>
 </div>
 </div>
 </div>

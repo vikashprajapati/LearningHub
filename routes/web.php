@@ -13,12 +13,14 @@
 Route::get('/','pagescontroller@home')->name('home');
 Route::resource('posts','PostController');
 Route::resource('question','QuestionController');
+Route::resource('tags','TagController',['except'=>['create']]);
 Route::get('/forum','pagescontroller@forum');
 Route::get('/resources','pagescontroller@resources');
 Route::get('/createpost','PostController@create');
 Route::get('/video','pagescontroller@video');
 Route::get('/profile','pagescontroller@profile');
 Route::get('/vqa','pagescontroller@viewquestion');
+Route::post('comments/{posy_id}',['uses'=>'CommentsController@store','as'=>'comments.store']);
 
 Auth::routes();
 
