@@ -1,3 +1,4 @@
+
 <div class="navigation-bar">
     <div class="head-cover">
       <img class="logo" src="/images/t_hub_logo.png">
@@ -29,14 +30,23 @@
               <span class="fa fa-search"></span></a>
             </li>
             <li><a href="/notifications"><span class="fa fa-bell"></span></a></li>
+            @if (!Auth::check())
+              <li><a href="{{route('login')}}"><span class="fa fa-user-circle"></span></a></li>
+            @endif
+            @if (Auth::check())
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/#"><img class="nav-profile" src="{{asset('images/vk.jpg')}}"><span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="/profile"><span class="fa fa-user-o p-t-5 p-r-10"></span>Profile</a></li>
+                <li><a href="{{route('posts.index')}}">Posts</a></li>
                 <li><a href="/profile"><span class="fa fa-gear p-t-5 p-r-10"></span>Settings</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#"><span class="fa fa-sign-out p-t-5 p-r-10"></span>Logout</a></li>
+                <li><a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span class="fa fa-sign-out p-t-5 p-r-10"></span>Logout</a></li>
+                 <form id="logout-form" action="{{route('logout')}}" method="post" style="display:none;">
+                  {{csrf_field() }}
+                </form>
               </ul>
             </li>
+            @endif
           </ul>
         </div>
       </div>
