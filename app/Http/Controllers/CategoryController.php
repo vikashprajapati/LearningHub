@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Post;
 
 class CategoryController extends Controller
 {
@@ -12,9 +13,13 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function __construct(){
+       $this->middleware('auth');
+     }
     public function index()
     {
-        //
+        $categories=Category::all();
+        return view('categories.index')->withCategories($categories);
     }
 
     /**
@@ -35,12 +40,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,array(
-          'name'=>'required|max:255'
-        ));
-        $category=new Category;
-        $category->name=$request->name;
-        $category->save();
+        //
     }
 
     /**
@@ -52,6 +52,9 @@ class CategoryController extends Controller
     public function show($id)
     {
         //
+        $posts=Post::where('category_id',$id)->get();
+        $categories=Category::find($id);
+        return view('categories.index')->withCategory($categories)->withPosts($posts);
     }
 
     /**

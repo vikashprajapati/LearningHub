@@ -8,7 +8,7 @@ class Post extends Model
 {
     public function tags()
     {
-      return $this->belongstoMany('App\Tag');
+      return $this->belongsToMany('App\Tag');
     }
     public function user()
     {
@@ -17,5 +17,8 @@ class Post extends Model
     public function comments()
     {
       return $this->hasMany('App\Comment');
+    }
+    public function category(){
+      return $this->belongsTo('App\Category');
     }
 }

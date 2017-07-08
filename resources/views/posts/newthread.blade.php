@@ -1,5 +1,8 @@
 @extends('/layouts/main')
 @section('title','|post')
+@section('stylesheets')
+  <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
+@endsection
 @section('content')
 
 <!--stylesheets for texteditor and design  -->
@@ -38,20 +41,20 @@ Choose the appropriate tags for your thread.
 </div>
 
 
-<label class="col-lg-3 control-label" value="category_id">Category:</label>
-    <select name="category_id" class="form-control">
+<label class="col-lg-3 control-label" for="category">Category:</label>
+    <select id="category" name="category" class="form-control">
       @foreach ($categories as $category)
-        <option value="{{$category->id}}">{{$category->name}}</option>
+        <option value="{{$category->id}}">{{$category->category}}</option>
       @endforeach
     </select>
 
-<label class="col-lg-3 control-label p-t-10">tags:</label>
+<label for="tags" class="col-lg-3 control-label p-t-10">Tags:</label>
 <div class="col-lg-8">
 <div class="ui-select p-t-10">
-  <select id="category2" class="form-control">
-    <option value="pro">Programming</option>
-    <option value="announce">Product and Service Announcements</option>
-    <option value="Prototypes" selected="selected">Prototypes</option>
+  <select id="tags" name="tags[]" multiple class="form-control">
+    @foreach ($tags as $tag)
+      <option value="{{$tag->id}}">{{$tag->title}}</option>
+    @endforeach
   </select>
 </div>
 </div>
@@ -67,4 +70,15 @@ Choose the appropriate tags for your thread.
 </div>
   </div>
 </form>
+@endsection
+@section('scripts')
+  <script src="{{ asset('js/select2.min.js') }}"></script>
+  <script type="text/javascript">
+    $("#tags").select2({
+      tags: true,
+    });
+    $("#category").select2({
+      tags: true,
+    });
+  </script>
 @endsection

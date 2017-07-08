@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Comment;
-
+use App\Category;
 
 class pagescontroller extends Controller
 {
@@ -13,6 +13,7 @@ class pagescontroller extends Controller
   public function home(Request $request){
     //if(!isset($request->sortby))
     $posts = Post::orderBy('views','desc')->paginate(3);
+
     $postsNew = Post::orderBy('created_at','desc')->paginate(3);
     // $posts=Post::paginate(3);
     //else if( $request->sortby === "featured"){
@@ -24,7 +25,8 @@ class pagescontroller extends Controller
   //controller for forum page
   public function forum(){
     $posts = Post::all();
-    return view('pages.forum')->withPosts($posts);
+    $categories=Category::paginate(9);
+    return view('pages.forum')->withPosts($posts)->withCategories($categories);
   }
 
   //controller for resouces page

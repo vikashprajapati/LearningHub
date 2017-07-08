@@ -5,16 +5,14 @@
       <span class="photo-caption">{{ $post->user->name }}</span>
     </div>
     <div class="post-head">
-      <h3>{{ $post->title }}</h3>
+      <a href="{{route('posts.show',[$post->id])}}"><h3>{{ $post->title }}</h3></a>
     </div>
     <div class="post-body">
       <span class="post-desc">
-        <small>{{strip_tags($post->body)}}</small>
+        <small>{{substr(strip_tags($post->body),0,250)}}{{(strlen(strip_tags($post->body))>250)?"...":""}}</small>
       </span>
-      <div class="post-tags"><!--All tags -->
-        @for($j=0;$j<5;$j++)
-          <span class="label label-default">Tag</span>
-        @endfor
+      <div class="post-category"><!--All tags -->
+          <span class="label label-default">{{$post->category->category}}</span>
       </div>
     </div>
     <div class="row">

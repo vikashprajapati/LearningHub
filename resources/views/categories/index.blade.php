@@ -2,6 +2,8 @@
 @section('title','|Your Posts')
 @section('content')
   <div class="col-md-8 col-md-offset-2">
+    <h1>{{$category->category}}<small>  category</small></h1>
+    <br/><br/>
     <div class="row">
       <div class="col-md-12">
         <table class="table">
@@ -16,14 +18,11 @@
             @foreach ($posts as $post)
               <tr>
                 <td>{{$post->id}}</td>
-                <td><a href="#">{{$post->title}}</a></td>
-                <td>{{strip_tags($post->body)}}</td>
+                <td>{{$post->title}}</td>
+                <td>{{substr(strip_tags($post->body),0,150)}}{{strlen(strip_tags($post->body))>150?"...":""}}</td>
                 <td>{{date('M j,Y h:ia',strtotime($post->created_at))}}</td>
                 <td>
-                  <a href="{{route('posts.edit',[$post->id])}}" class="btn btn-default btn-sm">Edit</a>
-                </td>
-                <td>
-                  <a href="{{route('posts.destroy',[$post->id])}}" class="btn btn-default btn-sm">Delete</a>
+                  <a href="{{route('posts.show',[$post->id])}}" class="btn btn-default btn-sm">View Post</a>
                 </td>
               </tr>
             @endforeach

@@ -21,6 +21,7 @@ Route::get('/video','pagescontroller@video');
 Route::get('/profile','pagescontroller@profile');
 Route::get('/vqa','pagescontroller@viewquestion');
 Route::post('comments/{posy_id}',['uses'=>'CommentsController@store','as'=>'comments.store']);
+Route::resource('categories','CategoryController');
 
 Auth::routes();
 
