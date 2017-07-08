@@ -3,8 +3,8 @@
     <div class="post-category col-xs-5 col-xs-offset-7 text-center">
       <h4>Technology</h4>
     </div>
-    <div class="post-photo m-l-10">
-      <img src="{{ asset('images/profile.jpg') }}"alt="">
+    <div class="post-photo m-l-10 ">
+      <img class="img-responsive"src="{{ asset('images/profile.jpg') }}"alt="">
       <span class="photo-caption">{{ $post->user->name }}</span>
     </div>
     <div class="post-head">

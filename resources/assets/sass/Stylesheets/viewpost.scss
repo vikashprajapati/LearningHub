@@ -1,0 +1,76 @@
+//styles for viewpost
+.viewpost{
+  .info-tags{
+    color: $fa-color;
+    background: $fa-background;
+  }
+  .view-post-col{
+    // background: $view-post-col-color;
+    .view-post-title{
+      background: $theme-color;
+      color:$view-post-title-color;
+      box-shadow: 3px 3px 5px $shadow-color;
+      border-left: 5px solid $navbar-hover-item-color;
+      border-right:  5px solid $navbar-hover-item-color;
+      h4{
+
+      }
+      span{
+        color: $navtabs-hover-font-color;
+        background-color: $navbar-hover-item-color;
+        padding: 5px;
+      }
+    }
+    .flex-container{
+      display: flex;
+      padding-left: 0px;
+      margin-bottom: 0px;
+      .btn-block{
+        padding: 0px;
+        margin-top: 0px;
+      }
+      .flex-item{
+        list-style: none;
+        width: 100%;
+        text-align: center;
+        display: inline-block;
+        background-color: $view-post-status-flex-color;
+        color: $flex-item-color;
+        padding-top: 3px;
+        padding-bottom: 3px;
+      }
+    }
+    .view-post-body{
+      background: $view-post-body-color;
+      box-shadow: 3px 3px 5px $shadow-color;
+    }
+    .view-post-tags{
+      background: $theme-color;
+      color: $view-post-tags-color;
+      box-shadow: 3px 3px 5px $shadow-color;
+      .fa{
+        line-height: $tags-line-height;
+      }
+
+      .category{
+        font-size: 14px;
+      }
+    }
+    .tags-row{
+      border-top: 2px solid $tags-border;
+      border-bottom: 2px solid $tags-border;
+    }
+  }
+  .view-post-comments{
+    .reply-head{
+      background: $theme-color;
+      color: $view-post-tags-color;
+    }
+    form{
+      input{
+        float: right;
+      }
+    }
+  }
+}
+//style for viewpost ends here
