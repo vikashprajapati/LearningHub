@@ -1,0 +1,33 @@
+// main-color
+$theme-color: #5c5d70;
+$secondary-theme-color:#178adf;
+$header-margin-top:200px;
+//navbar variables
+$nav-font-size: 23px;
+$shadow-color:#888888;
+$nav-font-color:white;
+$item-focus-color: gray;
+$navbar-hover-font-color:#91640F;
+$navbar-hover-item-color:#F1C40F;
+
+
+//variables for post-table
+$post-desc-font-size: 14px;
+$post-desc-line-height: 1.4;
+$post-desc-lines: 5;
+$post-bg-color:#e9e9e9;
+$post-title-color:$theme-color;
+$post-border-color:$theme-color;
+$post-status-color: #f1c40f;
+$post-category-color:#f1c40f;
+
+//variables for nav-tabs
+$navtabs-font-color:white;
+$navtabs-background-color:$theme-color;
+$navtabs-active-color: #f1c40f;
+$navtabs-hover-font-color:#91640F;
+$navtabs-hover-background-color:#f1c40f;
+
+//sidebar variables
+$card-name-color:#91640F;
+$card-name-background-color:#f1c40f;

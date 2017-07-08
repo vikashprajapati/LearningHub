@@ -1,0 +1,155 @@
+body{
+  background-color:#e0e0e0;
+}
+//styles for body begins here
+.header-space{
+  margin-top: $header-margin-top;
+}
+//styles for body ends here
+
+
+//styles for icons begins here
+.fa{
+  font-size: 20px;
+}
+//styles for icons ends here
+
+
+//styles for search begins here
+@media(min-width:768px)
+{
+  input[id="search"] {
+    border-radius:25px;
+    line-height: 20px;
+    margin-left: 50px;
+    margin-top: 9px;
+    width: auto;
+  }
+  input[id="search"]:focus {
+    width: auto;
+    background-color: #fff;
+    border-color: #ff5200;
+    -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+    -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+    box-shadow: 0 0 5px rgba(109,207,246,.5);
+  }
+}
+@media(min-width:1200px)
+{
+  input[id="search"] {
+    border-radius:25px;
+    line-height: 20px;
+    margin-left: 50px;
+    margin-top: 9px;
+    width: 300px;
+  }
+  input[id="search"]:focus {
+    width: 600px;
+    background-color: #fff;
+    border-color: #ff5200;
+    -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+    -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+    box-shadow: 0 0 5px rgba(109,207,246,.5);
+  }
+}
+form .has-feedback .form-control-feedback {
+  pointer-events: all;
+}
+form .has-feedback button.form-control-feedback {
+  pointer-events: all;
+  border: none;
+  background: transparent;
+}
+.form-group .form-control-feedback .fa
+{
+  line-height: 100%;
+}
+.form-group.has-feedback input{
+  padding-right: 40px;
+}
+//style for search-bar ends here
+
+
+
+
+//styles for pagination begins here
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus{
+  background: $theme-color;
+  border-color: white;
+}
+//styles for pagionation end here
+
+//styles for page-header
+.viewpost{
+  .page-header{
+.header-profile-img
+{
+  padding-right: 0px;
+  img{
+    width: 60%;
+    border-radius: 50%;
+    float: right;
+}
+}
+.header-profile-name{
+  float:left;
+  padding-left: 5px;
+}
+.header-tags{
+  .posted{
+    font-size: 16px;
+  }
+}
+}
+}
+//style for page-header ends here
+
+
+//style for suggested post cards begins here
+.viewcards{
+  h3{
+    color: $theme-color;
+  }
+  .card{
+    background-color: #eae7e7;
+    border-radius: 8px;
+    .card-header{
+      background-color: $theme-color;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+    .card-footer{
+      margin-top: 5px;
+      background-color: $theme-color;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  }
+}
+//styles for suggested posts ends here
+
+
+//styles for create thread
+.create-thread{
+    position:fixed;
+  right:20px;
+  bottom:20px;
+  border-radius:50%;
+  z-index: 25;
+  box-shadow: 0px 3px 2px #888888;
+}
+//end of create post style
+
+
+//styles for resouces page
+.resource-box{
+  .resource-item{
+    a {
+        color: black;
+      &:hover, &:focus{
+          text-decoration: none;
+      }
+    }
+  }
+}
+//end of resource style
