@@ -1,30 +1,31 @@
 <div class="row" style="padding-bottom: 10px">
-  <div class="post">
-    <div class="post-photo">
+  <div class="post p-t-10">
+    <div class="post-category col-xs-5 col-xs-offset-7 text-center">
+      <h4>Technology</h4>
+    </div>
+    <div class="post-photo m-l-10">
       <img src="{{ asset('images/profile.jpg') }}"alt="">
       <span class="photo-caption">{{ $post->user->name }}</span>
     </div>
     <div class="post-head">
       <h3>{{ $post->title }}</h3>
     </div>
+    <div class="post-date">
+      <h6 class="m-b-5">Last updated 2 hrs ago...</h6>
+    </div>
     <div class="post-body">
       <span class="post-desc">
         <small>{{strip_tags($post->body)}}</small>
       </span>
-      <div class="post-tags"><!--All tags -->
-        @for($j=0;$j<5;$j++)
-          <span class="label label-default">Tag</span>
-        @endfor
-      </div>
     </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="post-status">
-          <div class="span-right">
-            <span class="fa fa-eye">{{$post->views}} |</span>
-            <span class="fa fa-thumbs-o-up">{{$post->likes}} |</span>
-            <span class="fa fa-comments">{{$comments->where('post_id',$post->id)->count()}} |</span>
-          </div>
+    <div class="row m-t-25">
+      <div class="col-xs-12 col-sm-5">
+        <div class="post-status p-t-5">
+          <ul class="flex-container">
+            <li class="flex-item"><span class="fa fa-eye ">{{$post->views}}</span></li>
+            <li class="flex-item"><span class="fa fa-thumbs-o-up ">{{$post->likes}}</span></li>
+            <li class="flex-item"><span class="fa fa-comments ">{{$comments->where('post_id',$post->id)->count()}}</span></li>
+          </ul>
         </div>
       </div>
     </div>
