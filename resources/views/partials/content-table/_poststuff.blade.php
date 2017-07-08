@@ -8,14 +8,14 @@
       <span class="photo-caption">{{ $post->user->name }}</span>
     </div>
     <div class="post-head">
-      <h3>{{ $post->title }}</h3>
+      <a href="{{route('posts.show',[$post->id])}}"><h3>{{ $post->title }}</h3></a>
     </div>
     <div class="post-date">
       <h6 class="m-b-5">Last updated 2 hrs ago...</h6>
     </div>
     <div class="post-body">
       <span class="post-desc">
-        <small>{{strip_tags($post->body)}}</small>
+        <small>{{substr(strip_tags($post->body),0,250)}}{{(strlen(strip_tags($post->body))>250)?"...":""}}</small>
       </span>
     </div>
     <div class="row m-t-25">

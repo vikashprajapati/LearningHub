@@ -14,6 +14,10 @@ class CommentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function __construct()
+     {
+       $this->middleware('auth')->except('show');
+     }
     public function index()
     {
         //
@@ -42,7 +46,10 @@ class CommentsController extends Controller
         ));
         $post=Post::find($post_id);
         $comment=new Comment;
-        $comment->user_id=Auth::user()->id;
+        if (Auth::check()) {
+          # code...
+          $comment->user_id=Auth::user()->id;
+        }
         $comment->post_id=$post_id;
         $comment->comment=$request->comment;
         $comment->save();
