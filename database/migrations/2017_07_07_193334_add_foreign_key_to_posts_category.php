@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCategoryIdToPosts extends Migration
+class AddForeignKeyToPostsCategory extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddCategoryIdToPosts extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            //
+        Schema::table('posts', function(Blueprint $table){
+          $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null')->onUpdate('cascade');
         });
     }
 
@@ -25,8 +25,6 @@ class AddCategoryIdToPosts extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }
