@@ -1,59 +1,54 @@
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="head-cover">
-    <img style="float:left" src="/images/t_hub_logo.png" height= "120px" width="120px">
-    <div class="logo-text">The<br>Learning<br>Hub</div>
-  </div>
-  <div class="container">
-    <div class="nav-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toogle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+
+<div class="navigation-bar">
+    <div class="head-cover">
+      <img class="logo" src="/images/t_hub_logo.png">
+      <div class="logo-text">The<br>Learning<br>Hub</div>
     </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-left">
-        <li><a class="active" href="/"><span class="glyphicon glyphicon-home"></span></a></li>
-        <li><a href="/forum"><span class="fa fa-pencil-square-o"></span></a></li>
-        <li><a href="/resources"><span class="fa fa-download"></span></a></li>
-        <li><a href="/store"><span class="fa fa-shopping-cart"></span></a></li>
-        <li><a href="/qa"><span class="fa fa-quora"></span></a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><form>
-          <div class="form-group has-feedback">
-            <input id="search" type="text" class="form-control" placeholder="Search" />
-            <button type="submit" class="form-control-feedback"><span class="fa fa-search"></span></a>
-            </div>
-          </form>
-        </li>
-          <li><a href="/create post"><span class="fa fa-plus-circle"></span></a></li>
-          <li><a href="/notifications"><span class="fa fa-bell badge">5</span><!--<span id="ab-pending-notifications" class="pending-count alert">5</span>--></a></li>
-          @if (Auth::check())
-            <li><a href="/profile"><span class="fa fa-user-circle"></span></a></li>
-          @endif
-          @if (!Auth::check())
-            <li><a href="{{route('login')}}"><span class="fa fa-user-circle"></span></a></li>
-          @endif
-          @if (Auth::check())
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span class="glyphicon glyphicon-menu-down"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="{{route('posts.index')}}">Posts</a></li>
-              <li><a href="#">settings</a></li>
-              <li><a href="#">blah blah blah</a></li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                <form id="logout-form" action="{{route('logout')}}" method="post" style="display:none;">
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Brand</a>
+          <ul class="nav  navbar-nav">
+            <li><a class="active" href="/"><span class="fa fa-home"></span> Home</a></li>
+          </ul>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav  navbar-nav navbar-left">
+            <li><a href="/forum"><span class="fa fa-pencil-square-o"></span> Forum</a></li>
+            <li><a href="/resources"><span class="fa fa-download"></span> Resources</a></li>
+            <li><a href="/store"><span class="fa fa-shopping-cart"></span> Shop</a></li>
+            <li><a href="/qa"><span class="fa fa-quora"></span> Q/A</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a>
+              <span class="fa fa-search"></span></a>
+            </li>
+            <li><a href="/notifications"><span class="fa fa-bell"></span></a></li>
+            @if (!Auth::check())
+              <li><a href="{{route('login')}}"><span class="fa fa-user-circle"></span></a></li>
+            @endif
+            @if (Auth::check())
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/#"><img class="nav-profile" src="{{asset('images/vk.jpg')}}"><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/profile"><span class="fa fa-user-o p-t-5 p-r-10"></span>Profile</a></li>
+                <li><a href="{{route('posts.index')}}">Posts</a></li>
+                <li><a href="/profile"><span class="fa fa-gear p-t-5 p-r-10"></span>Settings</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span class="fa fa-sign-out p-t-5 p-r-10"></span>Logout</a></li>
+                 <form id="logout-form" action="{{route('logout')}}" method="post" style="display:none;">
                   {{csrf_field() }}
                 </form>
-              </li>
-
-            </ul>
-          </li>
-          @endif
-        </ul>
+              </ul>
+            </li>
+            @endif
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
+</div>

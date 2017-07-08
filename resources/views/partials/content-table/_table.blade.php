@@ -1,3 +1,4 @@
+<div class="col-sm-9">
 <div class="lefttable">
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a data-toggle="tab" href="#trending" aria-controls="trending" role="tab">Trending</a></li>
@@ -21,4 +22,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

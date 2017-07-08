@@ -1,0 +1,121 @@
+.navigation-bar{
+  position: fixed;
+  top:0px;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: 0px;
+}
+.navbar-default{
+  background-color: $theme-color;
+  border: none;
+  border-radius: 0px;
+  .navbar-nav{
+    li{
+      a{
+        color: $nav-font-color;
+        background-color: transparent;
+        transition: all 1s;
+      }
+      a:hover{
+        color: $navbar-hover-font-color;
+        z-index: 1;
+      }
+      a::after{
+        content: "";
+        position: absolute;
+        left:0;
+        top: 0;
+        text-align: left;
+        margin: 0;
+        opacity: 0;
+      }
+      a:hover:after {
+        z-index: -10;
+        animation: fill 1s forwards;
+        -webkit-animation: fill 1s forwards;
+        -moz-animation: fill 1s forwards;
+        opacity: 1;
+      }
+      }
+      li.active{
+        a,a:hover,a:focus{
+          background-color: $navtabs-active-color;
+          color:$navtabs-hover-font-color;
+          border-bottom: 2px solid $navtabs-hover-font-color;
+        }
+    }
+  }
+  .fa{
+    font-size: $nav-font-size;
+  }
+  //styles for dropdown-menu
+  .dropdown-menu{
+    box-shadow: 2px 2px 5px $shadow-color;
+  }
+  .navbar-nav > .open > a,.navbar-nav > .open > a:focus {
+    background-color: $item-focus-color;
+  }
+  .navbar-nav{
+    .dropdown-menu{
+      background-color: $item-focus-color;
+    }
+  }
+  .navbar > .container {
+    max-height: 50px;
+  }
+  .navbar-collapse .navbar-right{
+    .dropdown-toggle{
+      padding: 8px;
+    }
+    .nav-profile{
+      width:40px;
+      height:40px;
+      border-radius:50%
+    }
+  }
+}
+
+
+//styles for cover begins here
+.head-cover{
+  background: url('/images/ab.jpg');
+  // -webkit-background: url('/images/ab.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 120px;
+  transform: translateY(0px);
+  transition:all 1s;
+  .logo-text{
+    font-size: 36px;
+    line-height: 35px;
+    color:$theme-color;
+    margin: 0px;
+    padding-top:5px;
+    padding-bottom:5px;
+  }
+  .logo{
+    height: 100%;
+    float: left;
+  }
+  &.closed{
+    height: 0px;
+    transform: translateY(-120px);
+    visibility: hidden;
+  }
+}
+//styles for cover ends here
+@-webkit-keyframes fill {
+  0% {
+    width: 0%;
+    height: 3%;
+  }
+  50% {
+    width: 100%;
+    height: 3%;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    background: $navbar-hover-item-color;
+  }
+}

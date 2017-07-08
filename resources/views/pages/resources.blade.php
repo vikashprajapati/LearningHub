@@ -6,7 +6,7 @@
     <div class="page-header">
       <h2>resources</h2>
     </div>
-    <div class="resource-box col-md-8 col-sm-8 m-t-40" >
+    <div class="resource-box col-sm-9 m-t-40" >
       <div class="row">
         @foreach($resources as $r)
         <div class="resource-item col-sm-3 col-md-4">
