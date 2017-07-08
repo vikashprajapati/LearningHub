@@ -13,6 +13,10 @@ class QuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function __construct()
+     {
+       $this->
+     }
     public function index()
     {
         //
