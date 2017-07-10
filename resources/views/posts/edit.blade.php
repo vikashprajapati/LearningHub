@@ -68,13 +68,15 @@ Choose the appropriate tags for your thread.
 @section('scripts')
   <script src="{{ asset('js/select2.min.js') }}"></script>
   <script type="text/javascript">
+  var x=
     $("#tags").select2({
       tags: true,
-    });
+    })
+    .val({!! json_encode($post->tags()->allRelatedIds()) !!})
+    .trigger('change');
+
     $("#category").select2({
       tags: true,
     });
-    // $('select2-multi').select2();
-    $('.select2-multi').select2().val({!! json_encode($post->tags()->allRelatedIds()) !!}).trigger('change');
   </script>
 @endsection
