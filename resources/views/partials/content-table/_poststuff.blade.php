@@ -18,7 +18,7 @@
         <small>{{substr(strip_tags($post->body),0,250)}}{{(strlen(strip_tags($post->body))>250)?"...":""}}</small>
       </span>
     </div>
-    <div class="row m-t-25">
+    <div class="row m-t-35">
       <div class="col-xs-12 col-sm-5">
         <div class="post-status p-t-5">
           <ul class="flex-container">

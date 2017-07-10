@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Post;
+use App\Comment;
 
 class CategoryController extends Controller
 {
@@ -19,7 +20,9 @@ class CategoryController extends Controller
     public function index()
     {
         $categories=Category::all();
-        return view('categories.index')->withCategories($categories);
+        // $comments=Comment::where('post_id',$post->id)->orderBy('created_at','desc')->get();
+        $comments=Comment::all();
+        return view('categories.index')->withCategories($categories)->withComments($comments);
     }
 
     /**
@@ -54,7 +57,8 @@ class CategoryController extends Controller
         //
         $posts=Post::where('category_id',$id)->get();
         $categories=Category::find($id);
-        return view('categories.index')->withCategory($categories)->withPosts($posts);
+        $comments=Comment::all();
+        return view('categories.index')->withCategory($categories)->withPosts($posts)->withComments($comments);
     }
 
     /**

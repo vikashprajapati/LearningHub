@@ -23,7 +23,7 @@
 
         <ul class="flex-container">
           <span class="info-tags fa fa-info p-l-10 p-r-10"></span>
-          <li class="flex-item"><span class="category fa fa-user-secret m-r-10"> Author:Ayush</span></li>
+          <li class="flex-item"><span class="category fa fa-user-secret m-r-10">{{$post->user->name}}</span></li>
           <li class="flex-item"><span class="category fa fa-list"> Category:Technology</span></li>
           <li class="flex-item "><span class="category fa fa-clock-o m-r-5">{{date('M j,Y h:ia',strtotime($post->created_at))}}</span></li>
         </ul>

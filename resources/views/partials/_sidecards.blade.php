@@ -2,7 +2,7 @@
   <div class="profile">
     <h4 class="card-name text-center">Your Profile</h4>
     <div class="profile-img">
-      <a href="#"><img class="center-block" src="{{ asset('images/vk.jpg') }}" alt=""></a>
+      <a href="#"><img class="center-block" src="{{ asset('images/profile.jpg') }}" alt=""></a>
       <h5 style="text-align:center"><strong>Username</strong></h5>
     </div>
     <div class="row">

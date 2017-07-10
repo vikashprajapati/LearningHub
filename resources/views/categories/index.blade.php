@@ -6,7 +6,7 @@
     <br/><br/>
     <div class="row">
       <div class="col-md-12">
-        <table class="table">
+        <!-- <table class="table">
           <thead>
             <th>#</th>
             <th>Post Title</th>
@@ -27,7 +27,10 @@
               </tr>
             @endforeach
           </tbody>
-        </table>
+        </table> -->
+        @foreach($posts as $post)
+          @include('partials.content-table._poststuff')
+        @endforeach
       </div>
     </div>
   </div>

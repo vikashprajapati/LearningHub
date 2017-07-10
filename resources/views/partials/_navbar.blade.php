@@ -37,7 +37,7 @@
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/#"><img class="nav-profile" src="{{asset('images/vk.jpg')}}"><span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="/profile"><span class="fa fa-user-o p-t-5 p-r-10"></span>Profile</a></li>
-                <li><a href="{{route('posts.index')}}">Posts</a></li>
+                <li><a href="{{route('posts.index')}}"><span class="fa fa-file-text-o p-t-5 p-r-10"></span>My posts</a></li>
                 <li><a href="/profile"><span class="fa fa-gear p-t-5 p-r-10"></span>Settings</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span class="fa fa-sign-out p-t-5 p-r-10"></span>Logout</a></li>
