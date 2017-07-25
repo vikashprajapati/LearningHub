@@ -22,8 +22,7 @@
           <ul class="nav  navbar-nav navbar-left">
             <li><a href="/forum"><span class="fa fa-pencil-square-o"></span> Forum</a></li>
             <li><a href="/resources"><span class="fa fa-download"></span> Resources</a></li>
-            <li><a href="/store"><span class="fa fa-shopping-cart"></span> Shop</a></li>
-            <li><a href="/qa"><span class="fa fa-quora"></span> Q/A</a></li>
+            <li><a href="{{route('question.create')}}"><span class="fa fa-quora"></span> Q/A</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a>
@@ -34,7 +33,11 @@
               <li><a href="{{route('login')}}"><span class="fa fa-user-circle"></span></a></li>
             @endif
             @if (Auth::check())
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/#"><img class="nav-profile" src="{{asset('images/vk.jpg')}}"><span class="caret"></span></a>
+              @if (Auth::user()->ProfileImage===null)
+                  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/#"><img class="nav-profile" src="{{asset('images/profile.jpg')}}"><span class="caret"></span></a>
+              @else
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/#"><img class="nav-profile" src="{{asset('images/'.Auth::user()->ProfileImage)}}"><span class="caret"></span></a>
+              @endif
               <ul class="dropdown-menu">
                 <li><a href="/profile"><span class="fa fa-user-o p-t-5 p-r-10"></span>Profile</a></li>
                 <li><a href="{{route('posts.index')}}"><span class="fa fa-file-text-o p-t-5 p-r-10"></span>My posts</a></li>

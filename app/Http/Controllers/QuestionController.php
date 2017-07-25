@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Question;
 use Session;
+use App\Category;
+use App\Tag;
 
 class QuestionController extends Controller
 {
@@ -15,10 +17,7 @@ class QuestionController extends Controller
      */
      public function __construct()
      {
-<<<<<<< HEAD
-      
-=======
->>>>>>> ac1a18ddd35fd98524a42a324a4e5095cac80196
+      $this->middleware('auth')->except('create');
      }
     public function index()
     {
@@ -32,7 +31,9 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        return view('pages.qa');
+        $categories=Category::all();
+        $tags=Tag::all();
+        return view('pages.qa')->withCategories($categories)->withTags($tags);
     }
 
     /**
@@ -44,17 +45,36 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-          'Category'=>'max:255',
           'ques'=>'required',
-
+          'category' => 'required',
+          'tags' => 'required|min:1|max:5',
+          // 'tags.*' => 'required|max:25|unique:tags,title',
         ]);
+        $category = Category::find($request->category);
+        if($category === null){
+          $category = new Category;
+          $category->category = $request->category;
+          $category->save();
+        }
+        $tags = $request->tags;
+        for($i=0; $i<count($tags); $i++ ) {
+          $tag = Tag::find($tags[$i]);
+          if($tag === null) {
+            $tag = new Tag;
+            $tag->title = $tags[$i];
+            $tags[$i] = $tag->save();
+          }
+        }
         $question=new Question;
         $question->ques = $request->ques;
-        $question->Category = "abc";
+        $question->user_id=$request->user()->id;
+        $question->category()->associate($category);
+        $question->views=$question->views+1;
         $question->save();
-
+        $question->tags()->sync($tags,false);
         Session::flash('success','The question was successfully posted');
         return redirect()->route('question.show', ['question'=>$question->id]);
+
     }
 
     /**

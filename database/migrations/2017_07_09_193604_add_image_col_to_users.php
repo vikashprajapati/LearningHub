@@ -14,7 +14,7 @@ class AddImageColToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('ProfileImage')->nullable()->after('points');
+            $table->string('ProfileImage')->nullable()->after('points')->default('profile.jpg');
         });
     }
 
