@@ -117,7 +117,10 @@ form .has-feedback button.form-control-feedback {
 }
 //end of create post style
 
-
+//anchor disable stylesheet
+a[disabled] {
+    pointer-events: none;
+}
 //styles for resouces page
 .resource-box{
   .resource-item{

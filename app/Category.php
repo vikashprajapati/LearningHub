@@ -12,4 +12,9 @@ class Category extends Model
       # code...
       return $this->hasMany('App\Post');
     }
+    public function questions()
+    {
+      # code...
+      return $this->hasMany('App\Post');
+    }
 }

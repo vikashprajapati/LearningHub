@@ -2,30 +2,29 @@
 @extends('/layouts/main')
 @section('title','|post')
 @section('content')
-@endsection
   <div id="particles-js"></div>
   <script src="particles.js"></script>
-
-
-
-
   <!-- Profile icon header-->
-
   <link rel="stylesheet" href="{{ URL::asset('css/profile.css') }}" />
   <link rel="stylesheet" href="{{ asset ('css/font-awesome.css')}}">
-
-
-  <div class="col-lg-12 col-sm-12">
-    <div class="card hovercard">
+    <div class="card hovercard" style="margin-top:0px;">
       <div class="card-background">
-        <img class="card-bkimg" alt="" src="http://lorempixel.com/100/100/people/9/">
-        <!-- http://lorempixel.com/850/280/people/9/ -->
+        @if (Auth::user()->ProfileImage===null)
+          <img class="card-bkimg" alt="" src="{{ asset('images/profile.jpg') }}">
+        @else
+          <img class="card-bkimg" alt="" src="{{ asset('images/'.Auth::user()->ProfileImage) }}">
+        @endif
       </div>
       <div class="useravatar">
-        <img alt="" src="http://lorempixel.com/100/100/people/9/">
-        <span class="label label-danger">#676</span>
+        @if (Auth::user()->ProfileImage===null)
+          <img alt="" src="{{ asset('images/profile.jpg') }}">
+        @else
+          <img alt="" src="{{ asset('images/'.Auth::user()->ProfileImage) }}">
+        @endif
+
+        <span class="label label-danger">#{{Auth::user()->newQuery()->where('points','>=',Auth::user()->points)->count()}}</span>
       </div>
-      <div class="card-info"> <span class="card-title">Emma Watson</span>
+      <div class="card-info"> <span class="card-title">{{Auth::user()->name}}</span>
 
       </div>
     </div>
@@ -36,7 +35,7 @@
           <div class="hidden-xs">Profile</div>
         </button>
       </div>
-      <div class="btn-group" role="group">
+      {{-- <div class="btn-group" role="group">
         <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab" role="tabpanel"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
           <div class="hidden-xs">Notifications</div>
         </button>
@@ -45,7 +44,7 @@
         <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab" role="tabpanel"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
           <div class="hidden-xs">Settings</div>
         </button>
-      </div>
+      </div> --}}
     </div>
 
     <div class="well">
@@ -59,58 +58,14 @@
             <div class="panel-heading">My Activity</div>
             <div class="panel-body">
 
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".point">
-                Points <span class="badge">245</span>
+              <button type="button" class="btn btn-primary">
+                Points <span class="badge">{{Auth::user()->points}}</span>
               </button>
-              <div class="modal fade point" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                <div class="modal-dialog modal-lg" role="document">
-                  <div class="modal-content">
-                    You have asked 245 points Congrats!
-                  </div>
-                </div>
-              </div>
 
-              <button class="btn btn-primary" data-toggle="modal" data-target=".medal" type="button">
-                Medals <span class="badge">14</span>
-              </button>
-              <div class="modal fade medal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                <div class="modal-dialog modal-lg" role="document">
-                  <div class="modal-content">
-                    You have acquired 14 medals. They are:
-                  </div>
-                </div>
-              </div>
-
+              <a href="{{route('posts.index')}}" class="btn btn-primary">Your Post</a>
 
               <!--Questions Asked Button-->
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".ques">Questions Asked</button>
-
-              <div class="modal fade ques" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                <div class="modal-dialog modal-lg" role="document">
-                  <div class="modal-content">
-                    You have asked 19 questions till now.
-                  </div>
-                </div>
-              </div>
-              <!--Threads Started button-->
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".thread">My Threads</button>
-              <div class="modal fade thread" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                <div class="modal-dialog modal-lg" role="document">
-                  <div class="modal-content">
-                    You have started 18 threads.
-                  </div>
-                </div>
-              </div>
-
-              <!--My Replies Button-->
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".replies">My Replies</button>
-              <div class="modal fade replies" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                <div class="modal-dialog modal-lg" role="document">
-                  <div class="modal-content">
-                    You have given 15 replies.
-                  </div>
-                </div>
-              </div>
+              <a href="{{route('posts.index')}}" class="btn btn-primary">Question Asked</a>
 
             </div>
 
@@ -129,14 +84,19 @@
 
 
               <div class="container" style="padding-top: 60px;">
+                {!!Form::open(array('route'=>'image.store','files'=>true))!!}
                 <h1 class="page-header">Edit Profile</h1>
                 <div class="row">
                   <!-- left column -->
-                  <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="text-center">
-                      <img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar">
+                  <div class="sidebar hidden-xs col-md-3 col-sm-3 m-t-40">
+                    <div class="text-center" style="width:100%;">
+                      @if (Auth::user()->ProfileImage===null)
+                        <a href="/profile"><img class="center-block" src="{{ asset('images/profile.jpg') }}" class="image-circle" alt="" style="width:100%;"></a>
+                        @else
+                        <a href="/profile"><img class="center-block" src="{{ asset('images/'.Auth::user()->ProfileImage) }}" class="image-circle" alt="" style="width:100%;"></a>
+                      @endif
                       <h6>Upload a different photo...</h6>
-                      <input type="file" class="text-center center-block well well-sm">
+                      <input type="file" name="featured_image" id="featured_image" class="text-center center-block well well-sm" style="width:100%;">
                     </div>
                   </div>
                   <!-- edit form column -->
@@ -147,72 +107,10 @@
                       Make sure to click on <strong> Save changes </strong>.
                     </div>
                     <h3>Personal info</h3>
-                    <form class="form-horizontal" role="form">
-                      <div class="form-group">
-                        <label class="col-lg-3 control-label">First name:</label>
-                        <div class="col-lg-8">
-                          <input class="form-control" value="Write your first name" type="text">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-lg-3 control-label">Last name:</label>
-                        <div class="col-lg-8">
-                          <input class="form-control" value="Write your last name" type="text">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-lg-3 control-label">Job(if other than student):</label>
-                        <div class="col-lg-8">
-                          <input class="form-control" value="" type="text">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-lg-3 control-label">Email:</label>
-                        <div class="col-lg-8">
-                          <input class="form-control" value="Type your valid email here:" type="text">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-lg-3 control-label">Time Zone:</label>
-                        <div class="col-lg-8">
-                          <div class="ui-select">
-                            <select id="user_time_zone" class="form-control">
-                              <option value="Pacific Time (US & Canada)">(GMT-08:00) Pacific Time (US & Canada)</option>
-                              <option value="Arizona">(GMT-07:00) Arizona</option>
-                              <option value="India" selected="selected">(GMT+05:30) India (Mirzapur)</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-md-3 control-label">Username:</label>
-                        <div class="col-md-8">
-                          <input class="form-control" value="" type="text">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-md-3 control-label">Password:</label>
-                        <div class="col-md-8">
-                          <input class="form-control" value="11111122333" type="password">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-md-3 control-label">Confirm password:</label>
-                        <div class="col-md-8">
-                          <input class="form-control" value="11111122333" type="password">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-md-3 control-label"></label>
-                        <div class="col-md-8">
-                          <input class="btn btn-primary" value="Save Changes" type="button">
-                          <span></span>
-                          <input class="btn btn-default" value="Cancel" type="reset">
-                        </div>
-                      </div>
-                    </form>
+                    <input class="btn btn-primary" value="Save Changes" type="submit">
                   </div>
                 </div>
+                {!!Form::close()!!}
               </div>
             </div>
           </div>
@@ -389,3 +287,4 @@
       </div>
 
 <!-- Profile icon header ends-->
+@endsection

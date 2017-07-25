@@ -21,7 +21,7 @@ class Post extends Model
     public function category(){
       return $this->belongsTo('App\Category');
     }
-    public function like(){
+    public function likes(){
       return $this->hasMany('App\Like');
     }
 }

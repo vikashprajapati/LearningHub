@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Comment;
 use App\Category;
+use App\User;
 
 class pagescontroller extends Controller
 {
@@ -19,26 +20,30 @@ class pagescontroller extends Controller
     //else if( $request->sortby === "featured"){
     //$post = Post::where();
     $comments=Comment::all();
-    return view('pages.welcome')->withPosts($posts)->withComments($comments)->withPostsnew($postsNew);
+    $users=User::orderBy('points','desc')->paginate(5);
+    return view('pages.welcome')->withPosts($posts)->withComments($comments)->withPostsnew($postsNew)->withTopfive($users);
   }
 
   //controller for forum page
   public function forum(){
     $posts = Post::all();
     $categories=Category::paginate(9);
-    return view('pages.forum')->withPosts($posts)->withCategories($categories);
+    $users=User::orderBy('points','desc')->paginate(5);
+    return view('pages.forum')->withPosts($posts)->withCategories($categories)->withTopfive($users);
   }
 
   //controller for resouces page
   public function resources(){
     $resources = array('Video Lectures','Digital Library','PDF notes','Question Banks','Photos','Documents');
-    return view('pages.resources')->withResources($resources);
+    $users=User::orderBy('points','desc')->paginate(5);
+    return view('pages.resources')->withResources($resources)->withTopfive($users);
   }
 
  public function trynav()
 {
   # code...
-  return view('partials.nav');
+  $users=User::orderBy('points','desc')->paginate(5);
+  return view('partials.nav')->withTopfive($users);
 }
 public function profile()
 {
@@ -156,7 +161,8 @@ public function video()
 public function viewquestion()
 {
   # code...
-  return view('pages.vqa');
+  $users=User::orderBy('points','desc')->paginate(5);
+  return view('pages.vqa')->withTopfive($users);
 }
 }
 ?>
