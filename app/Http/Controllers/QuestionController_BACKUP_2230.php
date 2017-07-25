@@ -17,10 +17,10 @@ class QuestionController extends Controller
      */
      public function __construct()
      {
-
-
+<<<<<<< HEAD
+=======
       $this->middleware('auth')->except('create');
-
+>>>>>>> e543a9e46d0977f358727d55970e6d37758a59fa
      }
     public function index()
     {

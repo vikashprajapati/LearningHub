@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
-use Auth;
-use App\Comment;
-use App\User;
+use App\Question;
+use Session;
 
-class CommentsController extends Controller
+class QuestionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +15,6 @@ class CommentsController extends Controller
      */
      public function __construct()
      {
-       $this->middleware('auth')->except('show');
      }
     public function index()
     {
@@ -31,7 +28,7 @@ class CommentsController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.qa');
     }
 
     /**
@@ -40,24 +37,20 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$post_id)
+    public function store(Request $request)
     {
-        $this->validate($request,array(
-          'comment'=>'required|max:300'
-        ));
-        $post=Post::find($post_id);
-        $post->user->points+=2;
-        $post->user->save();
-        $comment=new Comment;
-        if (Auth::check()) {
-          $comment->user_id=Auth::user()->id;
-        }
-        $comment->post_id=$post_id;
-        $comment->comment=$request->comment;
-        $comment->save();
-        $comments=Comment::where('post_id',$post_id)->orderBy('created_at','desc')->get();
-        $users=User::orderBy('points','desc')->paginate(5);
-        return view('posts.viewpost')->withPost($post)->withComments($comments)->withTopfive($users);
+        $this->validate($request,[
+          'Category'=>'max:255',
+          'ques'=>'required',
+
+        ]);
+        $question=new Question;
+        $question->ques = $request->ques;
+        $question->Category = "abc";
+        $question->save();
+
+        Session::flash('success','The question was successfully posted');
+        return redirect()->route('question.show', ['question'=>$question->id]);
     }
 
     /**
@@ -66,9 +59,9 @@ class CommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Question $question)
     {
-        //
+        return view('pages.qa')->withQuestion($question);
     }
 
     /**

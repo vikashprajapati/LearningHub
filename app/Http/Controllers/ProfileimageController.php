@@ -3,22 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
+use Image;
+use Purifier;
 use Auth;
-use App\Comment;
-use App\User;
 
-class CommentsController extends Controller
+class ProfileimageController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-     public function __construct()
-     {
-       $this->middleware('auth')->except('show');
-     }
     public function index()
     {
         //
@@ -40,24 +35,17 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$post_id)
+    public function store(Request $request)
     {
-        $this->validate($request,array(
-          'comment'=>'required|max:300'
-        ));
-        $post=Post::find($post_id);
-        $post->user->points+=2;
-        $post->user->save();
-        $comment=new Comment;
-        if (Auth::check()) {
-          $comment->user_id=Auth::user()->id;
+        if($request->hasFile('featured_image')){
+          $image=$request->file('featured_image');
+          $filename=time().'.'.$image->getClientOriginalExtension();
+          $location=public_path('images/'.$filename);
+          Image::make($image)->resize(500,500)->save($location);
+          Auth::user()->ProfileImage=$filename;
+          Auth::user()->save();
         }
-        $comment->post_id=$post_id;
-        $comment->comment=$request->comment;
-        $comment->save();
-        $comments=Comment::where('post_id',$post_id)->orderBy('created_at','desc')->get();
-        $users=User::orderBy('points','desc')->paginate(5);
-        return view('posts.viewpost')->withPost($post)->withComments($comments)->withTopfive($users);
+        return back();
     }
 
     /**

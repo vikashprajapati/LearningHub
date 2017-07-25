@@ -12,9 +12,17 @@
         {!! $post->body !!}
         <div class="view-post-status m-t-30">
           <ul class="flex-container">
-            <button class="btn btn-default btn-block"><li class="flex-item fa fa-thumbs-o-up" > {{$post->likes}}</li></button>
-            <button class="btn btn-default btn-block"><li class="flex-item fa  fa-comments" style="border-left:1px solid white"> {{$comments->count()}}</li></button>
-            <button class="btn btn-default btn-block"><li class="flex-item fa fa-eye" style="border-left:1px solid white"> {{$post->views}}</li></button>
+            @if (Auth::check())
+              <a class="btn btn-default btn-block" {{ Auth::user()->likes->contains('post_id', $post->id) ? "disabled" : '' }} data-action="submit" data-target="like-form"><li class="flex-item fa fa-thumbs-o-up" > {{$post->likes()->count()}}</li></a>
+              @else
+                <a href="login" class="btn btn-default btn-block"><li class="flex-item fa fa-thumbs-o-up" > {{$post->likes()->count()}}</li></a>
+            @endif
+            <form class="hide" action="{{ route('post.like') }}" method="post" id="like-form">
+              {{ csrf_field() }}
+              <input type="hidden" name="post_id" value="{{ $post->id }}">
+            </form>
+            <a href="#comments" class="btn btn-default btn-block"><span class="flex-item fa  fa-comments" style="border-left:1px solid white"> {{$comments->count()}}</span></a>
+             <button class="btn btn-default btn-block"><li class="flex-item fa fa-eye" style="border-left:1px solid white"> {{$post->views}}</li></button>
           </ul>
         </div>
       </div>
@@ -24,7 +32,7 @@
         <ul class="flex-container">
           <span class="info-tags fa fa-info p-l-10 p-r-10"></span>
           <li class="flex-item"><span class="category fa fa-user-secret m-r-10">{{$post->user->name}}</span></li>
-          <li class="flex-item"><span class="category fa fa-list"> Category:Technology</span></li>
+          <li class="flex-item"><span class="category fa fa-list"> Category:{{$post->category->category}}</span></li>
           <li class="flex-item "><span class="category fa fa-clock-o m-r-5">{{date('M j,Y h:ia',strtotime($post->created_at))}}</span></li>
         </ul>
 
@@ -33,20 +41,20 @@
       </div>
       <div class="tags-row m-t-20 p-t-10 m-b-20">
         <span class="fa fa-tags"></span>
-        <span class="label label-default">Smartphone</span>
-        <span class="label label-default">Miui</span>
-        <span class="label label-default">Xiaomi</span>
+        @foreach ($post->tags as $tag)
+          <span class="label label-default">{{$tag->title}}</span>
+        @endforeach
       </div>
     </div>
   @include('partials._sidecards')
   </div>
 
   <!-- //comments section starts here -->
-    <div class="view-post-comments col-xs-9 m-t-20">
+    <div class="view-post-comments col-xs-9 m-t-20" id="comments">
       <div class="reply-head">
         <h2 style="display:block">Replies <span class="fa fa-reply"></span><span class="fa fa-pencil" style="float:right;padding-top:8px">{{$comments->count()}}</span></h2>
       </div>
-    <form action="{{route('comments.store',$post->id)}}" method="post">
+    <form action="{{route('comments.store',$post->id)}}" method="POST">
       {{ csrf_field() }}
       <textarea name="comment" rows="4" cols="100%" placeholder="your comment goes here....." style="width:100%"></textarea>
       <br/>

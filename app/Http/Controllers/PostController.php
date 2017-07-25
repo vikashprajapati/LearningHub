@@ -9,6 +9,7 @@ use App\Comment;
 use Session;
 use App\Category;
 use App\Tag;
+use App\User;
 
 class PostController extends Controller
 {
@@ -23,7 +24,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts=Post::all();
+        $posts=Auth::user()->posts;
         return view('posts.index')->withPosts($posts);
     }
 
@@ -77,9 +78,12 @@ class PostController extends Controller
       $post->body = $request->body;
       $post->user_id = $request->user()->id;
       $post->category()->associate($category);
+      $post->user->points+=10;
+      $post->user->save();
       $post->views=$post->views+1;
       $post->save();
       $post->tags()->sync($tags,false);
+      $post->save();
       Session::flash('success','The blog post successfully saved');
       return redirect()->route('posts.show', ['post'=>$post->id]);
     }
@@ -95,7 +99,8 @@ class PostController extends Controller
         $post->views++;
         $post->save();
         $comments=Comment::where('post_id',$post->id)->orderBy('created_at','desc')->get();
-        return view('posts.viewpost')->withPost($post)->withComments($comments);
+        $users=User::orderBy('points','desc')->paginate(5);
+        return view('posts.viewpost')->withPost($post)->withComments($comments)->withTopfive($users);
     }
 
     /**

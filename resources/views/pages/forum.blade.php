@@ -14,9 +14,8 @@
                 <img src="{{ asset('images/forum.png') }}"alt="">
                 <div class="Captions text-center">
                   <a href="{{route('categories.show',[$category->id])}}"><h4>{{$category->category}}</h4></a>
-                  <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h5>
                 </div>
-              </div>
+                </div>
             </div>
           @endforeach
         </div>
