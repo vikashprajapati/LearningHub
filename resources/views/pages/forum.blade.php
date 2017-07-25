@@ -9,7 +9,7 @@
       <div class="jumbotron col-md-8 col-sm-8" style="padding:15px; margin-top:40px">
         <div class="row">
           @foreach($categories as $category)
-            <div class="col-sm-3 col-md-4">
+            <div class="col-sm-4 col-md-4">
               <div class="topic-box thumbnail">
                 <img src="{{ asset('images/forum.png') }}"alt="">
                 <div class="Captions text-center">

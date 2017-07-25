@@ -1,5 +1,4 @@
-<div class="row" style="padding-bottom: 10px">
-  <div class="post p-t-10">
+  <div class="post p-t-10 m-b-20">
     <div class="post-category col-xs-5 col-xs-offset-7 text-center">
       <h4>{{$post->category->category}}</h4>
     </div>
@@ -29,5 +28,4 @@
         </div>
       </div>
     </div>
-  </div>
 </div>

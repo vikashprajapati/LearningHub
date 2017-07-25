@@ -1,0 +1,17 @@
+.category-col{
+  .category-title{
+    background: $category-backgorund-color;
+    color:$category-title-color;
+    box-shadow: 3px 3px 5px $shadow-color;
+    border-left: 5px solid $category-border-color;
+    border-right:  5px solid $category-border-color;
+    small{
+          color: white;
+    }
+    span{
+      color: $navtabs-hover-font-color;
+      background-color: $navbar-hover-item-color;
+      padding: 5px;
+    }
+  }
+}

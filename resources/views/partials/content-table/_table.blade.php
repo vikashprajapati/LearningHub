@@ -6,17 +6,21 @@
   </ul>
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="trending">
-      @foreach($posts as $post)
+      <div class="row p-b-15">
+        @foreach($posts as $post)
         @include('partials.content-table._poststuff')
-      @endforeach
+        @endforeach
+      </div>
       <div class="text-center">
         {!!$posts->links();!!}
       </div>
     </div>
     <div role="tabpanel" class="tab-pane" id="new">
-      @foreach($postsnew as $post)
+        @foreach($postsnew as $post)
+        <div class="row p-b-15">
         @include('partials.content-table._poststuff')
-      @endforeach
+      </div>
+        @endforeach
       <div class="text-center">
         {!!$posts->links();!!}
       </div>

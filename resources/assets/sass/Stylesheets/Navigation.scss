@@ -5,6 +5,7 @@
   z-index: 1000;
   border-bottom: 0px;
 }
+
 .navbar-default{
   background-color: $theme-color;
   border: none;
@@ -15,6 +16,9 @@
         color: $nav-font-color;
         background-color: transparent;
         transition: all 1s;
+      }
+      a:focus{
+        color: $nav-font-color;
       }
       a:hover{
         color: $navbar-hover-font-color;
@@ -58,6 +62,10 @@
   .navbar-nav{
     .dropdown-menu{
       background-color: $item-focus-color;
+      width: 800%;
+      .menu-title{
+        display: inline-block;
+      }
     }
   }
   .navbar > .container {

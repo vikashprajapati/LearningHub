@@ -3,19 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Question;
-use Session;
 
-class QuestionController extends Controller
+class resourcecontroller extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-     public function __construct()
-     {
-     }
     public function index()
     {
         //
@@ -28,7 +23,7 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        return view('pages.qa');
+        //
     }
 
     /**
@@ -39,18 +34,7 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-          'Category'=>'max:255',
-          'ques'=>'required',
-
-        ]);
-        $question=new Question;
-        $question->ques = $request->ques;
-        $question->Category = "abc";
-        $question->save();
-
-        Session::flash('success','The question was successfully posted');
-        return redirect()->route('question.show', ['question'=>$question->id]);
+        //
     }
 
     /**
@@ -59,9 +43,9 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Question $question)
+    public function show($id)
     {
-        return view('pages.qa')->withQuestion($question);
+        //
     }
 
     /**
